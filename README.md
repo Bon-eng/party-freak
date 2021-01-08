@@ -3,15 +3,15 @@
 
 
 ## users テーブル
-| Column   | Type    | Options                   |
-| -------- | ------- | ------------------------- |
-| nickname | string  | null: false               |
-| gender   | integer | null: false               |
-| email    | string  | null: false, unique: true |
-| password | string  | null: false               |
-| avatar   | blob    |                           |
-| comment  | text    |                           |
-| genre_id | integer |                           |
+| Column    | Type    | Options                   |
+| --------  | ------- | ------------------------- |
+| nickname  | string  | null: false               |
+| email     | string  | null: false, unique: true |
+| password  | string  | null: false               |
+| gender_id | integer | null: false               |
+| avatar    | text    |                           |
+| comment   | text    |                           |
+| genre_id  | integer |                           |
 
 ### Association
 - has_many :reviews
