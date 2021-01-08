@@ -23,10 +23,10 @@
 | ------------ | ------- | ----------- |
 | name         | string  | null: false |
 | introduction | text    | null: false |
-| date_id      | integer | null: false |
+| season_id      | integer | null: false |
 | country_id   | integer | null: false |
 | genre_id     | integer | null: false |
-
+| picture      | text    | null: false |
 
 ### Association
 - has_many :reviews
