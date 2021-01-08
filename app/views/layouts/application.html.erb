@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PartyFreak</title>
+    <title>Party Freak</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">Party Freak</a></h1>
+        
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <p>
+        Copyright Party Freak 2021.
+      </p>
+    </footer>
   </body>
 </html>
