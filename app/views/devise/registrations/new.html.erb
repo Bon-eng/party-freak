@@ -1,35 +1,49 @@
-<div class="contents row">
-  <div class="container">
-    <h2>Sign up</h2>
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= devise_error_messages! %>
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー新規登録</h2>
 
-      <div class="field">
-        <%= f.label :nickname %> <em>(10文字までで入力してください)</em><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "10" %>
-      </div>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
-      </div>
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+        <div class="field">
+          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
+        <div class="field">
+          <%= f.label :nickname, "ユーザー名" %><br />
+          <%= f.text_field :nickname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :gender_id, "性別" %><br />
+          <%= f.text_area :gender_id, class: :form__text %>
+        </div>
+
+        <div class="field">
+          <%= f.label :comment, "プロフィール" %><br />
+          <%= f.text_area :comment, class: :form__text %>
+        </div>
+
+        <div class="field">
+          <%= f.label :genre_id, "好きなジャンル" %><br />
+          <%= f.text_area :genre_id, class: :form__text %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
