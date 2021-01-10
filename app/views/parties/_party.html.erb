@@ -1,0 +1,11 @@
+<div class="card">
+  <%= link_to image_tag(party.image, class: :card__img ), root_path %>
+  <div class="card__body">
+    <%= link_to party.name, root_path, class: :card__title%>
+    <p class="card__summary">
+      <%= link_to party.introduction %>
+    </p>
+    <%#部分テンプレートの場合は「＠」いらないよ、↓party部分の話%>
+    <%#= link_to "by #{party.user.name}", "/users/#{party.user.id}", class: :card__user %>
+  </div>
+</div>

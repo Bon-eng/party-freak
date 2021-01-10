@@ -27,7 +27,7 @@
 
         <div class="field">
           <%= f.label :gender_id, "性別" %><br />
-          <%= f.text_area :gender_id, class: :form__text %>
+          <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select_box", id:"user-gender"}) %>
         </div>
 
         <div class="field">
@@ -37,7 +37,12 @@
 
         <div class="field">
           <%= f.label :genre_id, "好きなジャンル" %><br />
-          <%= f.text_area :genre_id, class: :form__text %>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select_box", id:"party-genre"}) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :image, "画像" %><br />
+          <%= f.file_field :image %>
         </div>
 
         <div class="actions">

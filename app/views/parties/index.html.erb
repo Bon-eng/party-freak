@@ -1,13 +1,4 @@
-<div class="contents row">
-  <% @parties.each do |party| %>
-    <div class="content_post" >
-      <p><%= party.introduction %></p>
-      <span class="name">
-        <%= party.name %>
-      </span>
-    </div>
-  <% end %>
-</div>
+
 <main class="main">
   <div class="inner">
     <% if user_signed_in? %>
@@ -18,7 +9,7 @@
     <% end %>
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでparty投稿一覧を表示する %>
-      <%# <%= render partial: "party", collection: @party %>
+      <%= render partial: "party", collection: @party %>
     </div>
   </div>
 </main>
