@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_094951) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.integer "gender_id"
-    t.text "avatar"
     t.text "comment"
     t.integer "genre_id"
     t.string "reset_password_token"

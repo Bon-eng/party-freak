@@ -14,5 +14,6 @@ class Genre < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :parties
+  has_many :user
 
 end
