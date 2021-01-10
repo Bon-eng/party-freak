@@ -1,7 +1,7 @@
 class PartiesController < ApplicationController
 
   def index
-    @parties = Party.all#order("created_at DESC")
+    @party = Party.order("created_at DESC")
   end
 
   def new
