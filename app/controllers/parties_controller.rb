@@ -17,6 +17,27 @@ class PartiesController < ApplicationController
     end
   end
 
+  def show
+    @party = Party.find(params[:id])
+  end
+
+  def edit
+    @party = Party.find(params[:id])
+    # if @party.save
+    #   redirect_to root_path
+    # end
+  end
+
+  def update
+    @party = Party.find(params[:id])
+    if @party.update(party_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+
   private
 
   def party_params
