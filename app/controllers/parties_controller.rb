@@ -37,6 +37,11 @@ class PartiesController < ApplicationController
     end
   end
 
+  def destroy
+    @party = Party.find(params[:id])
+    @party.destroy
+    redirect_to root_path
+  end
 
   private
 

@@ -8,7 +8,7 @@
       <% if user_signed_in? && current_user.id == @party.user.id %>
         <div class="party__manage">
           <%= link_to "編集する", edit_party_path, class: :party__btn %>
-          <%= link_to "削除する", root_path, class: :party__btn %>
+          <%= link_to "削除する", party_path, method: :delete, class: :party__btn %>
         </div>
       <% end %>
       <div class="party__image">
