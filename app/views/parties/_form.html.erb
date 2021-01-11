@@ -1,4 +1,4 @@
-<%= form_with(model: party, url: parties_path(@parties), local: true) do |f|%>
+<%= form_with(model: party, local: true) do |f|%>
   <div class="field">
     <%= f.label :name, "Partyの名前" %><br />
     <%= f.text_field :name %>

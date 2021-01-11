@@ -1,5 +1,7 @@
 class PartiesController < ApplicationController
 
+  before_action :party_find, only: [:show, :edit, :update, :destroy]
+
   def index
     @party = Party.order("created_at DESC")
   end
@@ -17,12 +19,36 @@ class PartiesController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @party.update(party_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @party.destroy
+    redirect_to root_path
+  end
+
+  
   private
 
   def party_params
     params.require(:party).permit(
       :name, :introduction, :season_id, :country_id, :genre_id, :image
     ).merge(user_id: current_user.id)
+  end
+
+  def party_find
+    @party = Party.find(params[:id])
   end
 
 end
