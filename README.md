@@ -9,11 +9,11 @@
 | email     | string  | null: false, unique: true |
 | password  | string  | null: false               |
 | gender_id | integer | null: false               |
-| avatar    | text    |                           |
 | comment   | text    |                           |
 | genre_id  | integer |                           |
 
 ### Association
+- has_many :parties
 - has_many :reviews
 
 
@@ -29,6 +29,7 @@
 | picture      | text    | null: false |
 
 ### Association
+- belongs_to :party
 - has_many :reviews
 
 
