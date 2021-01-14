@@ -23,10 +23,11 @@
 | ------------ | ------- | ----------- |
 | name         | string  | null: false |
 | introduction | text    | null: false |
-| season_id      | integer | null: false |
+| season_id    | integer | null: false |
 | country_id   | integer | null: false |
 | genre_id     | integer | null: false |
-| picture      | text    | null: false |
+| official_url | string  | null: false |
+
 
 ### Association
 - belongs_to :party
@@ -35,15 +36,13 @@
 
 
 ## reviews テーブル
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| title    | string  | null: false |
-| content  | text    | null: false |
-| score    | float   | null: false |
-| trip     | text    |             |
-| money_id | integer | null: false |
-| meal_id  | integer | null: false |
-| item     | text    |             |
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| title    | string     | null: false       |
+| content  | text       | null: false       |
+| score    | float      | null: false       |
+| user     | references | foreign_key: true |
+| party    | references | foreign_key: true |
 
 ### Association
 - belongs_to :user

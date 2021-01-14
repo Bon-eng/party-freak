@@ -7,6 +7,7 @@ class CreateParties < ActiveRecord::Migration[6.0]
       t.integer    :season_id,     null: false
       t.integer    :country_id,    null: false
       t.integer    :genre_id,      null: false
+      t.string     :official_url,  null: false
       t.references :user,          foreign_key: true
 
       t.timestamps

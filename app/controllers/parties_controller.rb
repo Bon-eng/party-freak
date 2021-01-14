@@ -1,5 +1,6 @@
 class PartiesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :party_find, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,6 +21,8 @@ class PartiesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @reviews = @party.reviews.includes(:user)
   end
 
   def edit
@@ -38,12 +41,12 @@ class PartiesController < ApplicationController
     redirect_to root_path
   end
 
-  
+
   private
 
   def party_params
     params.require(:party).permit(
-      :name, :introduction, :season_id, :country_id, :genre_id, :image
+      :name, :introduction, :season_id, :country_id, :genre_id, :official_url, :image
     ).merge(user_id: current_user.id)
   end
 

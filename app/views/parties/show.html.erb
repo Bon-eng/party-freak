@@ -1,10 +1,6 @@
 <main class="main">
   <div class="inner">
     <div class="party__wrapper">
-      <p class="party__hedding">
-        <%= "Partyの名前" %>
-      </p>
-      <%= link_to "by #{@party.user.nickname}", "/users/#{@party.user.id}", class: :party__user %>
       <% if user_signed_in? && current_user.id == @party.user.id %>
         <div class="party__manage">
           <%= link_to "編集する", edit_party_path, class: :party__btn %>
@@ -28,27 +24,19 @@
           </p>
         </div>
       </div>
-      <div class="party__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%# <%= form_with local: true do |f|%>
-            <div class="field">
-              <%# <%= f.label :hoge, "コメント" %><br />
-              <%# <%= f.text_field :hoge %>
-            </div>
-            <div class="actions">
-              <%# <%= f.submit "送信する", class: :form__btn  %>
-            </div>
-          <%# <% end %> 
-        <%# // ログインしているユーザーには上記を表示する %>
-        <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-            <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
-            </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
-        </ul>
-      </div>
+      <ul class="reviews_lists">
+        <% @reviews.each do |review| %>
+          <li class="reviews_list">
+            <%= review.title %>
+            <%= review.content %>
+            <%= image_tag review.image %>
+            <%= link_to review.user.nickname, "/users/#{@party.user.id}", class: :text_user %>
+          </li>
+        <% end %>
+      </ul>
+      <% if user_signed_in? %>
+        <%= render partial: "reviews/form", locals: {party: @party}%>
+      <% end %>
     </div>
   </div>
 </main>
