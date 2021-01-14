@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   
   has_many :parties
+  has_many :reviews
+
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -9,4 +11,5 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
 end

@@ -162,27 +162,27 @@ a {
 }
 
 /* 詳細ページ */
-.prototype__wrapper{
+.party__wrapper{
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
+.party__hedding{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
-.prototype__user{
+.party__user{
   display: block;
   font-size: 16px;
   color: #999;
   text-align: center;
   text-decoration: underline;
 }
-.prototype__image{
+.party__image{
   width: 40%;
   margin: 0 auto;
   padding: 16px 0;
 }
-.prototype__detail{
+.party__detail{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -192,12 +192,12 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
-.prototype__manage{
+.party__manage{
   display: flex;
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
+.party__btn{
   display: block;
   padding: 0.4em 1.6em;
   font-size: 0.4em;
@@ -209,16 +209,21 @@ a {
   transition: 0.4s ease;
   margin: 0 4px;
 }
-.prototype__btn:hover{
+.party__btn:hover{
   color: #fff;
   background: #999;
 }
 
-.prototype__comments{
+.party__comments{
   background-color: #f6f6f6;
   padding: 20px;
   margin: 28px 0 40px 0;
 }
+
+
+
+
+
 
 .comments_lists{
   padding-left: 20px;
@@ -291,7 +296,7 @@ a {
     width: 48%;
     margin-bottom: 40px;
   }
-  .prototype_image{
+  .party_image{
     width: 60%;
   }
 }
@@ -314,7 +319,7 @@ a {
   .card__summary {
     font-size: 14px;
   }
-  .prototype_image{
+  .party_image{
     width: 100%;
   }
   .table{

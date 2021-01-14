@@ -1,12 +1,11 @@
-
 <main class="main">
   <div class="inner">
-    <% if user_signed_in? %>
-      <div class="greeting">
-         こんにちは、
-        <%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: :greeting__link %>
-      </div>
-    <% end %>
+    <%# if user_signed_in? %>
+      <%# <div class="greeting"> %>
+         <%# こんにちは、 %>
+        <%#= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: :greeting__link %>
+      <%# </div> %>
+    <%# <% end %>
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでparty投稿一覧を表示する %>
       <%= render partial: "party", collection: @party %>
