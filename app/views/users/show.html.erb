@@ -1,0 +1,35 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんの情報" %>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プロフィール</th>
+            <td class="table__col2"><%= @user.comment %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">性別</th>
+            <td class="table__col2"><%= @user.gender.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">好きなジャンル</th>
+            <td class="table__col2"><%= @user.genre.name %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんのレビュー" %>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "reviews/review", collection: @reviews %>
+      </div>
+    </div>
+  </div>
+</div>

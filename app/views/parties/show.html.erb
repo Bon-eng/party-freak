@@ -23,12 +23,31 @@
             <%= @party.introduction %>
           </p>
         </div>
+        <div class="party__detail">
+          <p class="detail__title">開催時期</p>
+          <p class="detail__message">
+            <%= @party.season.name %>
+          </p>
+        </div>
+        <div class="party__detail">
+          <p class="detail__title">開催地域</p>
+          <p class="detail__message">
+            <%= @party.country.name %>
+          </p>
+        </div>
+        <div class="party__detail">
+          <p class="detail__title">ジャンル</p>
+          <p class="detail__message">
+            <%= @party.genre.name %>
+          </p>
+        </div>
       </div>
       <ul class="reviews_lists">
         <% @reviews.each do |review| %>
           <li class="reviews_list">
             <%= review.title %>
             <%= review.content %>
+            <%#= user.nickname %>
             <%= image_tag review.image %>
             <%= link_to review.user.nickname, "/users/#{@party.user.id}", class: :text_user %>
           </li>

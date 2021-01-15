@@ -4,7 +4,6 @@ class CreateReviews < ActiveRecord::Migration[6.0]
 
       t.string     :title,   null: false
       t.text       :content, null: false
-      t.float      :score
       t.references :user,    foreign_key: true
       t.references :party,   foreign_key: true
 
