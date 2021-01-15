@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
+  
+  
   has_many :parties
   has_many :reviews
 
@@ -9,7 +13,13 @@ class User < ApplicationRecord
   belongs_to :gender
   belongs_to :genre
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-         
+  with_options presence: true do
+    validates :nickname
+    validates :comment
+
+    with_options numericality: { other_than: 1, message: "を入力してください"} do
+      validates :gender_id
+      validates :genre_id
+    end
+  end
 end

@@ -49,9 +49,8 @@ ActiveRecord::Schema.define(version: 2021_01_12_032414) do
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
-    t.float "score"
-    t.bigint "user_id", null: false
-    t.bigint "party_id", null: false
+    t.bigint "user_id"
+    t.bigint "party_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["party_id"], name: "index_reviews_on_party_id"
