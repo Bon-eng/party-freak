@@ -1,0 +1,2 @@
+module Administrator::PartiesHelper
+end
