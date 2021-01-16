@@ -5,6 +5,5 @@
     <p class="card__summary">
       <%= link_to party.introduction, party_path(party.id), class: :card__summary%>
     </p>
-    <%= link_to "by #{party.user.nickname}", "/users/#{party.user.id}", class: :card__user %>
   </div>
 </div>
