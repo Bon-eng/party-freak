@@ -16,9 +16,15 @@
               <%= link_to "Party Freak", root_path %>
             </div>
             <% if user_signed_in? %>
+              <div class="greeting">
+                ようこそ！
+                <%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: :greeting__link %>
+              </div>
               <div class="nav__right"> 
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-                <%= link_to "New Party", new_party_path, class: :nav__btn %>
+                <% if current_user.admin? %>
+                  <%= link_to "New Party", new_party_path, class: :nav__btn %>
+                <% end %>
               </div> 
             <% else %>
               <div class="nav__right">

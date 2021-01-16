@@ -1,12 +1,14 @@
 <main class="main">
   <div class="inner">
     <div class="party__wrapper">
-      <% if user_signed_in? && current_user.id == @party.user.id %>
+    <%# ⬇️⬇️⬇️adminユーザーだけが編集&削除できる⬇️⬇️⬇️ %>
+      <% if user_signed_in? && current_user.admin? %>
         <div class="party__manage">
           <%= link_to "編集する", edit_party_path, class: :party__btn %>
           <%= link_to "削除する", party_path, method: :delete, class: :party__btn %>
         </div>
       <% end %>
+    <%# ⬆️⬆️⬆️adminユーザーだけが編集&削除できる⬆️⬆️⬆️ %>
       <div class="party__image">
         <%= image_tag (@party.image) %>
       </div>
@@ -41,15 +43,20 @@
             <%= @party.genre.name %>
           </p>
         </div>
+        <div class="party__detail">
+          <p class="detail__title">オフィシャルHP</p>
+          <p class="detail__message">
+            <%= raw Rinku.auto_link(h(@party.official_url), :all, 'target="_blank"') %>
+          </p>
+        </div>
       </div>
       <ul class="reviews_lists">
         <% @reviews.each do |review| %>
           <li class="reviews_list">
             <%= review.title %>
             <%= review.content %>
-            <%#= user.nickname %>
             <%= image_tag review.image %>
-            <%= link_to review.user.nickname, "/users/#{@party.user.id}", class: :text_user %>
+            <%= link_to review.user.nickname, "/users/#{review.user.id}", class: :text_user %>
           </li>
         <% end %>
       </ul>
