@@ -6,7 +6,7 @@ FactoryBot.define do
     password              { Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
     gender_id             { 2 }
-    comment               {Faker::JapaneseMedia::Doraemon.gadget}
+    profile               {Faker::JapaneseMedia::Doraemon.gadget}
     genre_id              { 2 }
 
   end

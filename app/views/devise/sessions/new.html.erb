@@ -5,9 +5,10 @@
        
         <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
 
-        <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにする%>
-        <%= render 'shared/error_messages', model: f.object %>
-
+        <div class='login-flash-message'>
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+        </div>
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらも可" %>

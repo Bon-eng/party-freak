@@ -3,7 +3,7 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
-        comment: プロフィール
+        profile: プロフィール
         gender_id: 性別
         genre_id: 好きなジャンル
 
