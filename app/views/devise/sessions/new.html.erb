@@ -5,14 +5,17 @@
        
         <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
 
+        <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにする%>
+        <%= render 'shared/error_messages', model: f.object %>
+
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらも可" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.label :password, "パスワード" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", placeholder:"6文字以上の半角英数字" %>
         </div>
 
         <div class="actions">

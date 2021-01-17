@@ -6,13 +6,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @party = Party.find(params[:party_id])
+    @reviews = @party.reviews.includes(:user)
     if @review.save
       redirect_to party_path(@review.party)
     else
-      # @party = @review.party
-      # @reviews = @party.reviews
-      render "party/show"
+      render "parties/show"
     end
+
   end
 
 
