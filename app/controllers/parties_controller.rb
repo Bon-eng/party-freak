@@ -1,9 +1,8 @@
 class PartiesController < ApplicationController
 
-  before_action :admin_user, only: [:new, :edit, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :admin_user, only: [:new, :edit, :destroy]
   before_action :party_find, only: [:show, :edit, :update, :destroy]
-  # before_action :move_to_root, except: [:index, :show]
 
   def index
     @party = Party.order("created_at DESC")

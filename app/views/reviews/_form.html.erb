@@ -1,10 +1,11 @@
 <p class="is-size-4 mb-3">レビューを書く</p>
 
-<div class="rating-box mt-3">
-  <%= form_with model: @review, url: party_reviews_path(party), local: true do |f| %>
-<div class="star-rating">
-  <div class="star-rating-item" style="width:50%;"></div>
-</div>
+  <div class="rating-box mt-3">
+    <%= form_with model: @review, url: party_reviews_path(party), local: true do |f| %>
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにする%>
+    <%= render 'shared/error_messages', model: f.object %>
+  </div>
+
 
 
     <div class="field">
@@ -22,10 +23,7 @@
       <%= f.file_field :image %>
     </div>
 
-
-
-
-
+  <div class="actions">
     <%= f.submit "保存", class: "button mt-3" %>
-  <% end %>
-</div>
+  </div>
+<% end %>

@@ -9,7 +9,7 @@
 | email     | string  | null: false, unique: true |
 | password  | string  | null: false               |
 | gender_id | integer | null: false               |
-| comment   | text    |                           |
+| profile   | text    |                           |
 | genre_id  | integer |                           |
 
 ### Association

@@ -5,24 +5,27 @@
 
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
 
+        <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにする%>
+        <%= render 'shared/error_messages', model: f.object %>
+
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらも可" %>
         </div>
 
         <div class="field">
           <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder:"6文字以上の半角英数字" %>
         </div>
 
         <div class="field">
           <%= f.label :password_confirmation, "パスワード再入力" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder:"同じパスワードを入力してください"%>
         </div>
 
         <div class="field">
           <%= f.label :nickname, "ユーザー名" %><br />
-          <%= f.text_field :nickname %>
+          <%= f.text_field :nickname, placeholder:"20文字以内で入力してください", maxlength:"20"%>
         </div>
 
         <div class="field">
@@ -31,8 +34,8 @@
         </div>
 
         <div class="field">
-          <%= f.label :comment, "プロフィール" %><br />
-          <%= f.text_area :comment, class: :form__text %>
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile, class: :form__text, placeholder:"プロフィールを入力してください(必須・200文字まで)" ,rows:"7" ,maxlength:"200" %>
         </div>
 
         <div class="field">

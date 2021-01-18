@@ -1,0 +1,13 @@
+ja:
+ activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        profile: プロフィール
+        gender_id: 性別
+        genre_id: 好きなジャンル
+
+      review:
+        title: レビュータイトル
+        content: レビュー本文
+        image: 画像
