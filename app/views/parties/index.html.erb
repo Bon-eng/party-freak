@@ -1,4 +1,4 @@
-<%= render partial: "party", collection: @party %>
+<%#= render partial: "party", collection: @party %>
 <%#                      画像表示はこの記述方法で                      %>
 <%#= image_tag 'top.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
 <%#                      画像表示はこの記述方法で                      %>
@@ -63,16 +63,17 @@
     <div class="row">
       <div class="col-lg-4">
         <%#= link_to party_path(party) do %>
-        <%= link_to image_tag @party[0].image, party_path(@party.ids[0]), width: '360', height: '280' %>
+        <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
           <h2><%= @party[0].name %></h2>
           <p><%= @party[0].introduction %></p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a><%= link_to party_path(@party.ids[0]) %></p>
+          <%= link_to "View details", party_path(@party.ids[0]) %>
+          <%# <p><a class="btn btn-secondary" href="/parties/#{party.id}" role="button">View details &raquo;</a></p> %>
       </div>
       <div class="col-lg-4">
           <%= image_tag @party[1].image, width: '360', height: '280' %>
         <h2><%= @party[1].name %></h2>
         <p><%= @party[1].introduction %></p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <button type="button" class="btn btn-secondary"><%= link_to "View details &raquo;", party_path(@party.ids[1]) %></button>
       </div>
       <div class="col-lg-4">
           <%= image_tag @party[2].image, width: '360', height: '280' %>
