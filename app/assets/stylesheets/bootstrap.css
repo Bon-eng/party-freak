@@ -6430,6 +6430,7 @@ a.close.disabled {
 
 .carousel {
   position: relative;
+  /*ここにheight指定でtop画像のメインっぽい？*/
 }
 
 .carousel.pointer-event {

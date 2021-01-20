@@ -1,10 +1,10 @@
-<%#= render partial: "party", collection: @party %>
+<%= render partial: "party", collection: @party %>
 <%#                      画像表示はこの記述方法で                      %>
-<%= image_tag 'top.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
+<%#= image_tag 'top.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
 <%#                      画像表示はこの記述方法で                      %>
 
 <main role="main">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -12,32 +12,31 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1>Example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <%= image_tag '1.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            <h1>海外に自由に行けなくなってしまった</h1>
+            <h1>こんな今だからこそ知ってもらいたい</h1>
+            <p></p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '2.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
         <div class="container">
-          <div class="carousel-caption text-right">
-            <h1>One more for good measure.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+          <div class="carousel-caption">
+            <h1>世界にはあなたの想像を</h1>
+            <h1>遥かに超えるスケールのPartyがあることを</h1>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '3.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>さあ、素晴らしい世界をのぞいてみよう</h1>
+            <p></p>
           </div>
         </div>
       </div>
@@ -64,28 +63,23 @@
     <div class="row">
       <div class="col-lg-4">
         <%#= link_to party_path(party) do %>
-        
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-          <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
-        </svg>
-        <h2><%= @party[0].name %></h2>
-        <p><%= @party[0].introduction %></p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+        <%= link_to image_tag @party[0].image, party_path(@party.ids[0]), width: '360', height: '280' %>
+          <h2><%= @party[0].name %></h2>
+          <p><%= @party[0].introduction %></p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a><%= link_to party_path(@party.ids[0]) %></p>
+      </div>
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-        <%= image_tag @party[1].image, width: '360', height: '280' %></svg>
+          <%= image_tag @party[1].image, width: '360', height: '280' %>
         <h2><%= @party[1].name %></h2>
         <p><%= @party[1].introduction %></p>
         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+      </div>
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
-        <%= image_tag @party[2].image, width: '360', height: '280' %></svg>
+          <%= image_tag @party[2].image, width: '360', height: '280' %>
         <h2><%= @party[2].name %></h2>
         <p><%= @party[2].introduction %></p>
         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+      </div>
     </div><!-- /.row -->
     <%# end %>
 
