@@ -58,11 +58,11 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading"><%= @party[0].name %></h2>
-          <p class="lead"><%= @party[0].introduction %></p>
+          <h2 class="featurette-heading"><%= @review[0].title %></h2>
+          <p class="lead"><%= @review[0].content %></p>
         </div>
         <div class="col-md-5 align-self-center">
-          <%= link_to image_tag @party[0].image, class: 'img-thumbnail' %>
+          <%= link_to image_tag @review[0].image, class: 'img-thumbnail' %>
         </div>
       </div>
 
@@ -71,7 +71,7 @@
       <div class="row featurette">
         <div class="col-md-7 order-md-2 align-self-center">
           <h2 class="featurette-heading"><%= @review[1].title %></h2>
-          <p class="lead"><%= @review[1].title %></p>
+          <p class="lead"><%= @review[1].content %></p>
         </div>
         <div class="col-md-5 order-md-1">
           <%= link_to image_tag @review[1].image, class: 'img-thumbnail', width: '500', height: '500' %>
@@ -83,7 +83,7 @@
       <div class="row featurette">
         <div class="col-md-7 align-self-center">
           <h2 class="featurette-heading"><%= @review[2].title %></h2>
-          <p class="lead"><%= @review[2].title %></p>
+          <p class="lead"><%= @review[2].content %></p>
         </div>
         <div class="col-md-5">
           <%= link_to image_tag @review[2].image, class: 'img-thumbnail', width: '500', height: '500' %>
@@ -95,23 +95,25 @@
     <%# if @party.length != 0 %>
       <div class="row">
         <div class="col-lg-4">
-          <%#= link_to image_tag @party[0].image, width: '360', height: '280' %>
-            <h2><%#= @party[0].name %></h2>
-            <p><%#= @party[0].introduction %></p>
-            <%#= link_to "View details", party_path(@party.ids[0]) %>
+          <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
+            <h2><%= @party[0].name %></h2>
+            <p><%= @party[0].introduction %></p>
+            <%= link_to "View details", party_path(@party.ids[0]) %>
             <%# <p><a class="btn btn-secondary" href="/parties/#{party.id}" role="button">View details &raquo;</a></p> %>
         </div>
         <div class="col-lg-4">
-            <%#= image_tag @party[1].image, width: '360', height: '280' %>
-          <h2><%#= @party[1].name %></h2>
-          <p><%#= @party[1].introduction %></p>
-          <button type="button" class="btn btn-secondary"><%#= link_to "View details &raquo;", party_path(@party.ids[1]) %></button>
+            <%= image_tag @party[1].image, width: '360', height: '280' %>
+          <h2><%= @party[1].name %></h2>
+          <p><%= @party[1].introduction %></p>
+          <%= link_to "View details", party_path(@party.ids[1]) %>
+          <%# <button type="button" class="btn btn-secondary"><%= link_to "View details &raquo;", party_path(@party.ids[1]) %>
         </div>
         <div class="col-lg-4">
-            <%#= image_tag @party[2].image, width: '360', height: '280' %>
-          <h2><%#= @party[2].name %></h2>
-          <p><%#= @party[2].introduction %></p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <%= image_tag @party[2].image, width: '360', height: '280' %>
+          <h2><%= @party[2].name %></h2>
+          <p><%= @party[2].introduction %></p>
+          <%= link_to "View details", party_path(@party.ids[2]) %>
+          <%# <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> %>
         </div>
       </div><!-- /.row -->
       <!-- /END THE FEATURETTES -->
