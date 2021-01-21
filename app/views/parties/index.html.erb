@@ -1,8 +1,3 @@
-<%#= render partial: "party", collection: @party %>
-<%#                      画像表示はこの記述方法で                      %>
-<%#= image_tag 'top.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
-<%#                      画像表示はこの記述方法で                      %>
-
 <main role="main">
   <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
     <ol class="carousel-indicators">
@@ -15,19 +10,17 @@
         <%= image_tag '1.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
         <div class="container">
           <div class="carousel-caption">
-            <h1>海外に自由に行けなくなってしまった</h1>
-            <h1>こんな今だからこそ知ってもらいたい</h1>
-            <p></p>
+            <h1><strong>海外に自由に行けなくなってしまった</strong></h1>
+            <h1><strong>こんな今だからこそ知ってもらいたい</strong></h1>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '2.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '4.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
         <div class="container">
           <div class="carousel-caption">
-            <h1>世界にはあなたの想像を</h1>
-            <h1>遥かに超えるスケールのPartyがあることを</h1>
-            <p></p>
+            <h1><strong>世界にはあなたの想像を</strong></h1>
+            <h1><strong>超えるスケールのPartyがあることを</strong></h1>
           </div>
         </div>
       </div>
@@ -35,8 +28,7 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '3.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
         <div class="container">
           <div class="carousel-caption">
-            <h1>さあ、素晴らしい世界をのぞいてみよう</h1>
-            <p></p>
+            <h1><strong>さあ、素晴らしい世界をのぞいてみよう</strong></h1>
           </div>
         </div>
       </div>
@@ -58,11 +50,51 @@
 
   <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
-    <%# @parties.each do |party| %>
+
+    <!-- START THE FEATURETTES -->
+
+  
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading"><%= @party[0].name %></h2>
+        <p class="lead"><%= @party[0].introduction %></p>
+      </div>
+      <div class="col-md-5 align-self-center">
+        <%= link_to image_tag @party[0].image, class: 'img-thumbnail' %>
+        <%#= link_to image_tag @party[0].image, class: 'img-thumbnail', width: '500', height: '500' %>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2 align-self-center">
+        <h2 class="featurette-heading"><%= @review[1].title %></h2>
+        <p class="lead"><%= @review[1].title %></p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <%= link_to image_tag @review[1].image, class: 'img-thumbnail', width: '500', height: '500' %>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 align-self-center">
+        <h2 class="featurette-heading"><%= @review[2].title %></h2>
+        <p class="lead"><%= @review[2].title %></p>
+      </div>
+      <div class="col-md-5">
+        <%= link_to image_tag @review[2].image, class: 'img-thumbnail', width: '500', height: '500' %>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
     <div class="row">
       <div class="col-lg-4">
-        <%#= link_to party_path(party) do %>
         <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
           <h2><%= @party[0].name %></h2>
           <p><%= @party[0].introduction %></p>
@@ -82,56 +114,9 @@
         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
       </div>
     </div><!-- /.row -->
-    <%# end %>
-
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading"><%= @party[0].name %><span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
     <!-- /END THE FEATURETTES -->
+    <hr class="featurette-divider">
 
   </div><!-- /.container -->
-
-
-  <%# @parties.each do |party| %>
-
-
-
+  
 </main>

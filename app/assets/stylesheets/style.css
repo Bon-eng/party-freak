@@ -32,4 +32,20 @@ footer p {
   margin-bottom: .25rem;
 }
 
+/*ヘッダー周り*/
+.greeting {
+  margin-right: 30px;
+}
+
+.navbar {
+  color: white;
+}
+
+.nav_right {
+  text-align: right;
+
+}
+.carousel-caption {
+  font-size: 100px;
+}
 
