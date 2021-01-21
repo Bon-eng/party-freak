@@ -1,9 +1,122 @@
-<main class="main">
-  <div class="inner">
-    <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでparty投稿一覧を表示する %>
-      <%= render partial: "party", collection: @party %>
+<main role="main">
+  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag '1.jpeg', class: 'img-fluid', alt: 'Responsive image' %>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1><strong>海外に自由に行けなくなってしまった</strong></h1>
+            <h1><strong>こんな今だからこそ知ってもらいたい</strong></h1>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '4.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1><strong>世界にはあなたの想像を</strong></h1>
+            <h1><strong>超えるスケールのPartyがあることを</strong></h1>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><%= image_tag '3.jpeg', class: 'img-fluid', alt: 'Responsive image' %></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1><strong>さあ、素晴らしい世界をのぞいてみよう</strong></h1>
+          </div>
+        </div>
+      </div>
     </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-</main>
 
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+
+    <!-- START THE FEATURETTES -->
+
+  
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading"><%= @party[0].name %></h2>
+        <p class="lead"><%= @party[0].introduction %></p>
+      </div>
+      <div class="col-md-5 align-self-center">
+        <%= link_to image_tag @party[0].image, class: 'img-thumbnail' %>
+        <%#= link_to image_tag @party[0].image, class: 'img-thumbnail', width: '500', height: '500' %>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2 align-self-center">
+        <h2 class="featurette-heading"><%= @review[1].title %></h2>
+        <p class="lead"><%= @review[1].title %></p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <%= link_to image_tag @review[1].image, class: 'img-thumbnail', width: '500', height: '500' %>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 align-self-center">
+        <h2 class="featurette-heading"><%= @review[2].title %></h2>
+        <p class="lead"><%= @review[2].title %></p>
+      </div>
+      <div class="col-md-5">
+        <%= link_to image_tag @review[2].image, class: 'img-thumbnail', width: '500', height: '500' %>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+
+    <div class="row">
+      <div class="col-lg-4">
+        <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
+          <h2><%= @party[0].name %></h2>
+          <p><%= @party[0].introduction %></p>
+          <%= link_to "View details", party_path(@party.ids[0]) %>
+          <%# <p><a class="btn btn-secondary" href="/parties/#{party.id}" role="button">View details &raquo;</a></p> %>
+      </div>
+      <div class="col-lg-4">
+          <%= image_tag @party[1].image, width: '360', height: '280' %>
+        <h2><%= @party[1].name %></h2>
+        <p><%= @party[1].introduction %></p>
+        <button type="button" class="btn btn-secondary"><%= link_to "View details &raquo;", party_path(@party.ids[1]) %></button>
+      </div>
+      <div class="col-lg-4">
+          <%= image_tag @party[2].image, width: '360', height: '280' %>
+        <h2><%= @party[2].name %></h2>
+        <p><%= @party[2].introduction %></p>
+        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div><!-- /.row -->
+    <!-- /END THE FEATURETTES -->
+    <hr class="featurette-divider">
+
+  </div><!-- /.container -->
+  
+</main>

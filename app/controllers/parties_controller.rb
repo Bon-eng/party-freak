@@ -6,6 +6,7 @@ class PartiesController < ApplicationController
 
   def index
     @party = Party.order("created_at DESC")
+    @review = Review.order("created_at DESC")
   end
 
   def new

@@ -10,7 +10,7 @@
       <% end %>
     <%# ⬆️⬆️⬆️adminユーザーだけが編集&削除できる⬆️⬆️⬆️ %>
       <div class="party__image">
-        <%= image_tag (@party.image) %>
+        <%= image_tag(@party.image,class: 'img-fluid', alt: 'Responsive image') %>
       </div>
       <div class="party__body">
         <div class="party__detail">
@@ -60,7 +60,7 @@
           
             <%= review.title %>
             <%= review.content %>
-            <%= image_tag review.image %>
+            <%= image_tag(review.image,class: 'img-fluid', alt: 'Responsive image') %>
             <%= link_to review.user.nickname, "/users/#{review.user.id}", class: :text_user %>
           </li>
         <% end %>
