@@ -54,7 +54,7 @@
     <!-- START THE FEATURETTES -->
 
   
-    <% if @party.length != 0 %>
+    <% if @review.length != 0 %>
 
       <div class="row featurette">
         <div class="col-md-7">
@@ -90,7 +90,7 @@
     <% end %>
     <hr class="featurette-divider">
 
-    <%# if @party.length != 0 %>
+    <% if @party.length != 0 %>
       <div class="row">
         <div class="col-lg-4">
           <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
@@ -113,7 +113,7 @@
       </div><!-- /.row -->
       <!-- /END THE FEATURETTES -->
       <hr class="featurette-divider">
-    <%# end %>
+    <% end %>
     </div><!-- /.container -->
 
 </main>
