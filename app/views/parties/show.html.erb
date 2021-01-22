@@ -60,7 +60,7 @@
           
             <%= review.title %>
             <%= review.content %>
-            <%= image_tag(review.image,class: 'img-fluid', alt: 'Responsive image') %>
+            <%= image_tag(review.image, class: 'img-fluid', alt: 'Responsive image') %>
             <%= link_to review.user.nickname, "/users/#{review.user.id}", class: :text_user %>
           </li>
         <% end %>
