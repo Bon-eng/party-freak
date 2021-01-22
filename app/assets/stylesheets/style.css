@@ -42,10 +42,22 @@ footer p {
 }
 
 .nav_right {
-  text-align: right;
 
 }
+
 .carousel-caption {
-  font-size: 100px;
+  text-shadow:
+  1px 0 0 black,
+  0 1px 0 black,
+  -1px 0 0 black,
+  0 -1px 0 black
 }
 
+
+.party__wrapper {
+  text-align: center;
+}
+
+.form__wrapper {
+  text-align: center;
+}
