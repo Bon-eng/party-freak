@@ -58,33 +58,33 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading"><%#= @review[0].title %></h2>
-          <p class="lead"><%#= @review[0].content %></p>
+          <h2 class="featurette-heading"><%= @review[0].title %></h2>
+          <p class="lead"><%= @review[0].content %></p>
         </div>
         <div class="col-md-5 align-self-center">
-          <%#= link_to image_tag @review[0].image, class: 'img-thumbnail' %>
+          <%= link_to image_tag @review[0].image, class: 'img-thumbnail' %>
         </div>
       </div>
       <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7 order-md-2 align-self-center">
-          <h2 class="featurette-heading"><%#= @review[1].title %></h2>
-          <p class="lead"><%#= @review[1].content %></p>
+          <h2 class="featurette-heading"><%= @review[1].title %></h2>
+          <p class="lead"><%= @review[1].content %></p>
         </div>
         <div class="col-md-5 order-md-1 align-self-center">
-          <%#= link_to image_tag @review[1].image, class: 'img-thumbnail', width: '500', height: '500' %>
+          <%= link_to image_tag @review[1].image, class: 'img-thumbnail', width: '500', height: '500' %>
         </div>
       </div>
       <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7 align-self-center">
-          <h2 class="featurette-heading "><%#= @review[2].title %></h2>
-          <p class="lead"><%#= @review[2].content %></p>
+          <h2 class="featurette-heading "><%= @review[2].title %></h2>
+          <p class="lead"><%= @review[2].content %></p>
         </div>
         <div class="col-md-5 align-self-center">
-          <%#= link_to image_tag @review[2].image, class: 'img-thumbnail', width: '500', height: '500' %>
+          <%= link_to image_tag @review[2].image, class: 'img-thumbnail', width: '500', height: '500' %>
         </div>
       </div>
     <%# end %>
@@ -107,7 +107,7 @@
         <div class="col-lg-4">
             <%= image_tag @party[2].image, width: '360', height: '280' %>
           <h2><%= @party[2].name %></h2>
-          <p><#= @party[2].introduction %></p>
+          <p><%= @party[2].introduction %></p>
           <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[2]), class: 'text-reset' %></button>
         </div>
       </div><!-- /.row -->
