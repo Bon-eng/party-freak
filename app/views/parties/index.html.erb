@@ -93,22 +93,22 @@
     <%# if @party.length != 0 %>
       <div class="row">
         <div class="col-lg-4">
-          <%#= link_to image_tag @party[0].image, width: '360', height: '280' %>
-          <h2><%#= @party[0].name %></h2>
-          <p><%#= @party[0].introduction %></p>
-          <button type="button" class="btn btn-outline-secondary rounded-pill"><%#= link_to "レビューを見る", party_path(@party.ids[0]), class: 'text-reset' %></button>
+          <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
+          <h2><%= @party[0].name %></h2>
+          <p><%= @party[0].introduction %></p>
+          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[0]), class: 'text-reset' %></button>
         </div>
         <div class="col-lg-4">
-          <%#= image_tag @party[1].image, width: '360', height: '280' %>
-          <h2><%#= @party[1].name %></h2>
-          <p><%#= @party[1].introduction %></p>
-          <button type="button" class="btn btn-outline-secondary rounded-pill"><%#= link_to "レビューを見る", party_path(@party.ids[1]), class: 'text-reset' %></button>
+          <%= image_tag @party[1].image, width: '360', height: '280' %>
+          <h2><%= @party[1].name %></h2>
+          <p><%= @party[1].introduction %></p>
+          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[1]), class: 'text-reset' %></button>
         </div>
         <div class="col-lg-4">
-            <%#= image_tag @party[2].image, width: '360', height: '280' %>
-          <h2><%#= @party[2].name %></h2>
-          <p><%#= @party[2].introduction %></p>
-          <button type="button" class="btn btn-outline-secondary rounded-pill"><%#= link_to "レビューを見る", party_path(@party.ids[2]), class: 'text-reset' %></button>
+            <%= image_tag @party[2].image, width: '360', height: '280' %>
+          <h2><%= @party[2].name %></h2>
+          <p><#= @party[2].introduction %></p>
+          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[2]), class: 'text-reset' %></button>
         </div>
       </div><!-- /.row -->
       <!-- /END THE FEATURETTES -->
