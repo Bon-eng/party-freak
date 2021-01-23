@@ -1,6 +1,32 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      おかえりなさい
+    </div>
+
+    <!-- Login Form -->
+    <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
+      <div class="fadeIn second" >
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらも可" %>
+      </div>
+      <div class="fadeIn third" >
+        <%= f.password_field :password, autocomplete: "current-password", placeholder:"6文字以上の半角英数字" %>
+      </div>
+      <div class="fadeIn fourth" >
+        <%= f.submit "ログイン", class: :form__btn  %>
+      </div>
+    
+    <% end %>
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
       <h2 class="page-heading">ユーザーログイン</h2>
        
         <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
