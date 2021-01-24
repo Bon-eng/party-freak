@@ -13,9 +13,13 @@ class ReviewsController < ApplicationController
     else
       render "parties/show"
     end
-
   end
 
+
+  # def show
+  #   @review = Review.find(params[:id])
+  #   @party = Party.find(params[:id])
+  # end
 
   private
 
