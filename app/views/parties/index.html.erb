@@ -44,67 +44,35 @@
   </div>
 
   <div class="container marketing">
+    <div class="row">
+      <% @party.first(3).each do |party| %>
+        <div class="col-lg-4">
+          <%= image_tag party.image, width: '360', height: '280' %>
+          <h1><%= party.name %></h1>
+          開催地域
+          <h4><%= party.country.name %></h4>
+          ジャンル
+          <h4><%= party.genre.name %></h4>
+          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "詳細を見る", party_path(party.id), class: 'text-reset' %></button>
+        </div>
+      <% end %>
+    </div>
 
-    <%# if @party.length != 0 %>
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading"><%= @review[0].title %></h2>
-          <p class="lead"><%= @review[0].content %></p>
-        </div>
-        <div class="col-md-5 align-self-center">
-          <%= link_to image_tag @review[0].image, class: 'img-thumbnail' %>
-        </div>
-      </div>
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2 align-self-center">
-          <h2 class="featurette-heading"><%= @review[1].title %></h2>
-          <p class="lead"><%= @review[1].content %></p>
-        </div>
-        <div class="col-md-5 order-md-1 align-self-center">
-          <%= link_to image_tag @review[1].image, class: 'img-thumbnail', width: '500', height: '500' %>
-        </div>
-      </div>
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 align-self-center">
-          <h2 class="featurette-heading "><%= @review[2].title %></h2>
-          <p class="lead"><%= @review[2].content %></p>
-        </div>
-        <div class="col-md-5 align-self-center">
-          <%= link_to image_tag @review[2].image, class: 'img-thumbnail', width: '500', height: '500' %>
-        </div>
-      </div>
-    <%# end %>
     <hr class="featurette-divider">
 
-    <%# if @party.length != 0 %>
-      <div class="row">
-        <div class="col-lg-4">
-          <%= link_to image_tag @party[0].image, width: '360', height: '280' %>
-          <h2><%= @party[0].name %></h2>
-          <p><%= @party[0].introduction %></p>
-          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[0]), class: 'text-reset' %></button>
+    <div class="row featurette">
+      <% @review.each do |review| %>
+        <div class="col-md-7">
+          <h2 class="featurette-heading"><%= review.title %></h2>
+          <p class="lead"><%= review.content. truncate(50) %>
+          <%= link_to "続きをみる", party_path(review.party.id) %></p>
         </div>
-        <div class="col-lg-4">
-          <%= image_tag @party[1].image, width: '360', height: '280' %>
-          <h2><%= @party[1].name %></h2>
-          <p><%= @party[1].introduction %></p>
-          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[1]), class: 'text-reset' %></button>
+        <div class="col-md-5 align-self-center">
+          <%= image_tag review.image, class: 'img-thumbnail' %>
         </div>
-        <div class="col-lg-4">
-            <%= image_tag @party[2].image, width: '360', height: '280' %>
-          <h2><%= @party[2].name %></h2>
-          <p><%= @party[2].introduction %></p>
-          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "レビューを見る", party_path(@party.ids[2]), class: 'text-reset' %></button>
-        </div>
-      </div><!-- /.row -->
-      <!-- /END THE FEATURETTES -->
-      <hr class="featurette-divider">
-    <%# end %>
-    </div><!-- /.container -->
-
+        <hr class="featurette-divider">
+      <% end %>
+    </div>
+    <hr class="featurette-divider">
+  </div><!-- /.container -->
 </main>

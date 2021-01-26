@@ -52,6 +52,7 @@ footer p {
 
 .party__wrapper {
   text-align: center;
+  padding-top: 20px;
 }
 
 .form__wrapper {
@@ -217,4 +218,37 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   animation-delay: 1s;
+}
+
+/*ユーザープロフィール*/
+.name_text_center{
+  text-align: center;
+  padding-top: 20px;
+}
+
+.profile_label {
+  font-size: 13px;
+}
+
+.profile_value {
+  font-size: 18px;
+}
+
+.profile_text_center ul {
+  margin: 0 auto 10px;
+  padding: 0;
+  display: table;
+}
+
+.profile_text_center li {
+  width: 120px;
+  padding: 10px 0;
+  border-right: 1px solid black;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.profile_comment {
+  text-align: center;
 }

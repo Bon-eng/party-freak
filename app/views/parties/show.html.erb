@@ -1,5 +1,5 @@
-<main class="main">
-  <div class="inner">
+<div class="container">
+  <div class="row">
     <div class="party__wrapper">
     <%# ⬇️⬇️⬇️adminユーザーだけが編集&削除できる⬇️⬇️⬇️ %>
       <% if user_signed_in? && current_user.admin? %>
@@ -9,21 +9,17 @@
         </div>
       <% end %>
     <%# ⬆️⬆️⬆️adminユーザーだけが編集&削除できる⬆️⬆️⬆️ %>
-      <div class="party__image">
-        <%= image_tag(@party.image,class: 'img-fluid', alt: 'Responsive image') %>
-      </div>
-      <div class="party__body">
-        <div class="party__detail">
-          <p class="detail__title">Partyの名前</p>
-          <p class="detail__message">
+      <div class="col-md-12 text-center">
+        <div class="party__image">
+          <%= image_tag(@party.image, class: 'img-fluid', alt: 'Responsive image') %>
+        </div>
+        <div class="party__body">
+          <div class="party__detail">
             <%= @party.name %>
-          </p>
+          </div>
         </div>
         <div class="party__detail">
-          <p class="detail__title">紹介</p>
-          <p class="detail__message">
-            <%= @party.introduction %>
-          </p>
+            <%= safe_join(@party.introduction.split("\n"),tag(:br)) %>
         </div>
         <div class="party__detail">
           <p class="detail__title">開催時期</p>
@@ -70,4 +66,4 @@
       <% end %>
     </div>
   </div>
-</main>
+</div>

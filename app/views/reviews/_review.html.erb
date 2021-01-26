@@ -1,10 +1,7 @@
-<div class="card">
-  <%= link_to image_tag(review.image, class: 'img-fluid', alt: 'Responsive image'), party_path(review.party.id) %>
-  <div class="card__body">
-    <%= review.title %>
-    <p class="card__summary">
-      <%= review.content %>
-    </p>
-    <%= link_to "by #{review.user.nickname}", "/users/#{review.user.id}", class: :card__user %>
+<div class="row featurette">
+  <div class="col-md-8">
+    <%= link_to image_tag(review.image, class: 'img-thumbnail'), party_path(review.party.id) %>
+    <h4><%= review.title %></h4>
+    <p><%= review.content %></p>
   </div>
 </div>
