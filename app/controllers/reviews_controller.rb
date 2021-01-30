@@ -15,17 +15,37 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
 
-  # def show
-  #   @review = Review.find(params[:id])
-  #   @party = Party.find(params[:id])
-  # end
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to root_path
+  end
+
+  
+
+  def show
+    @review = Review.find(params[:id])
+    @party = Party.find(params[:id])
+  end
 
   private
 
   def review_params
     params.require(:review).permit(
-      :title, :content, :score, :image
+      :title, :content, :image
     ).merge(user_id: current_user.id, party_id: params[:party_id])
   end
 

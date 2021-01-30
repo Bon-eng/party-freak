@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="review_title">
-    <h3><strong>レビューを投稿する</strong></h3>
+  <div class="edit_title">
+    <h3><strong>編集する</strong></h3>
   </div>
 
-  <%= form_with model: @review, url: party_reviews_path(party), local: true do |f| %>
+  <%= form_with model: @review, url: edit_party_review_path(@review.id), local: true do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
 
     <div class="form-group row">
