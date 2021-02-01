@@ -60,7 +60,7 @@
     <hr class="featurette-divider">
 
     <div class="row featurette">
-      <% @review.each do |review| %>
+      <% @review.first(3).each do |review| %>
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= review.title %></h2>
           <p class="lead"><%= review.content. truncate(50) %>
@@ -70,6 +70,7 @@
           <%= image_tag review.image, class: 'img-thumbnail' %>
         </div>
         <hr class="featurette-divider">
+        
       <% end %>
     </div>
     <hr class="featurette-divider">
