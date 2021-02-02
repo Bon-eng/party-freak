@@ -1,18 +1,16 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand"><strong><h2>
-      <%= link_to "Party Freak", root_path, class: 'text-reset' %>
-    </strong></h2></a>
+    <a class="navbar-brand">
+      <strong><h2><%= link_to "Party Freak", root_path, class: 'text-reset' %></strong></h2></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Partyを探す</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">レビューを見る</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active ml-5">
+           <button type="button" class="btn btn-outline-light nav-link rounded-pill" >
+            <%= link_to "Partyを探す", indexall_parties_path, class: 'text-reset' %>
+           </button>
         </li>
       </ul>
       <% if user_signed_in? %>

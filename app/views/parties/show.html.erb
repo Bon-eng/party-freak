@@ -13,12 +13,13 @@
       <div class="party__image">
         <%= image_tag(@party.image, class: 'img-fluid', alt: 'Responsive image') %>
       </div>
-
-        <div class="party_detail ">
+      <div class="col-md-4 d-flex align-items-center">
+        <div class="party_detail">
           <h1><%= @party.name %></h1>
+        </div>
       </div>
-      <div class="col-md-8 offset-md-3">
-        <div class="party_content text-left">
+      <div class="col-md-8 text-left">
+        <div class="party_content">
           <h5><%= safe_join(@party.introduction.split("\n"),tag(:br)) %></h5>
         </div>
       </div>
@@ -29,6 +30,7 @@
           <tr><th>オフィシャルHP</th><td><%= raw Rinku.auto_link(h(@party.official_url), :all, 'target="_blank"') %></td></tr>
       </table>
   </div>
+  <hr class="featurette-divider">
     <div class="row featurette">
       <% @reviews.each do |review| %>
         <div class="col-md-7">

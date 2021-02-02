@@ -43,6 +43,10 @@ class PartiesController < ApplicationController
     redirect_to root_path
   end
 
+  def indexall
+    @party = Party.order("created_at DESC")
+  end
+
 
   private
 
