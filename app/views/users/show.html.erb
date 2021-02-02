@@ -1,35 +1,31 @@
-<div class="main">
-  <div class="inner">
-    <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= "#{@user.nickname}さんの情報" %>
-      </h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @user.nickname %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">プロフィール</th>
-            <td class="table__col2"><%= @user.profile %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">性別</th>
-            <td class="table__col2"><%= @user.gender.name %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">好きなジャンル</th>
-            <td class="table__col2"><%= @user.genre.name %></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのレビュー" %>
-      </h2>
-      <div class="user__card">
-        <%= render partial: "reviews/review", collection: @reviews %>
+<div class="container">
+  <div class="user_profile">
+    <h2 class="name_text_center">
+      <%= "#{@user.nickname}" %>
+    </h2>
+    <div class="profile_text_center">
+      <ul>
+        <li>
+          <div class="profile_label">性別</div>
+          <div class="profile_value">
+            <%= @user.gender.name %>
+          </div>
+        </li>
+        <li class="last_profile" style="border-right: none;">
+          <div class="profile_label">好きなジャンル</div>
+          <div class="profile_value">
+            <%= @user.genre.name %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="profile_comment">
+      <div class="profile_label">プロフィール</div>
+      <div class="profile_value">
+        <%= @user.profile %>
       </div>
     </div>
   </div>
+  <hr class="featurette-divider">
+  <%= render partial: "reviews/review", collection: @reviews %>
 </div>

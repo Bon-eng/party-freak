@@ -1,28 +1,20 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">ユーザーログイン</h2>
-       
-        <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
-
-        <div class='login-flash-message'>
-          <%= flash[:notice] %>
-          <%= flash[:alert] %>
-        </div>
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらも可" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, "パスワード" %><br />
-          <%= f.password_field :password, autocomplete: "current-password", placeholder:"6文字以上の半角英数字" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "ログイン", class: :form__btn  %>
-        </div>
-      <% end %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      おかえりなさい
     </div>
+    <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
+      <div class="fadeIn second" >
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス" %>
+      </div>
+      <div class="fadeIn third" >
+        <%= f.label :password, "パスワード" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder:"6文字以上の半角英数字" %>
+      </div>
+      <div class="fadeIn fourth" >
+        <%= f.submit "ログイン", class: :form__btn  %>
+      </div>
+    <% end %>
   </div>
 </div>
