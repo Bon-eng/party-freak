@@ -43,7 +43,7 @@ class PartiesController < ApplicationController
     redirect_to root_path
   end
 
-  def indexall
+  def lineup
     @party = Party.order("created_at DESC")
   end
 
