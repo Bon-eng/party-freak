@@ -71,3 +71,4 @@ gem 'rinku'
 gem 'rails-i18n'
 
 gem 'kaminari'
+

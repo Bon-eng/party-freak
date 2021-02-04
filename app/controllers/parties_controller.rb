@@ -44,7 +44,7 @@ class PartiesController < ApplicationController
   end
 
   def lineup
-    @party = Party.order("created_at DESC")
+    @party = Party.order("created_at DESC").page(params[:page]).per(6)
   end
 
 

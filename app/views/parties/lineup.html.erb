@@ -1,9 +1,17 @@
 <div class="container marketing">
-  <div class="row">
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" class="form-control mr-sm-2" placeholder="Party検索" aria-label="検索...">
-      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
-    </form>
+  <div class="index-title">
+    <h2>Party一覧情報</h2>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-12 search-form">
+      <form class="form-inline">
+        <div class="form-group">
+          <input class="form-control" type="search" placeholder="Party検索" aria-label="検索...">
+          <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+        </div>
+      </form>
+    </div>
   </div>
   
   <div class="row">
@@ -29,5 +37,7 @@
       </div>
     <% end %>
   </div>
+
+  <%= paginate @party %>
 
 </div>
