@@ -9,7 +9,6 @@ class CreateParties < ActiveRecord::Migration[6.0]
       t.integer    :genre_id,      null: false
       t.string     :official_url,  null: false
       t.references :user,          foreign_key: true
-
       t.timestamps
 
     end

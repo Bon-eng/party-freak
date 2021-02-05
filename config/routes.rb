@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create, :show, :edit, :update, :destroy]
     collection do
       get 'lineup'
+      get 'search'
     end
   end
 

@@ -11,9 +11,9 @@
         <%= form.submit "検索", class: "search-btn" %>
     </div>
   <% end %>
-
+  
   <div class="row">
-    <% @party.each do |party| %>
+    <% @parties.each do |party| %>
       <div class="col-lg-4">
         <div class="party-image-content">
           <%= image_tag party.image, width: '360', height: '280' %>
@@ -36,6 +36,6 @@
     <% end %>
   </div>
 
-  <%= paginate @party %>
+
 
 </div>

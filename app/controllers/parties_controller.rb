@@ -44,9 +44,12 @@ class PartiesController < ApplicationController
   end
 
   def lineup
-    @party = Party.order("created_at DESC").page(params[:page]).per(6)
+    @party = Party.order("created_at DESC").page(params[:page]).per(9)
   end
 
+  def search
+    @parties = Party.search(params[:keyword])
+  end
 
   private
 
