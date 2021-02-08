@@ -43,10 +43,13 @@ class PartiesController < ApplicationController
     redirect_to root_path
   end
 
-  def indexall
-    @party = Party.order("created_at DESC")
+  def lineup
+    @party = Party.order("created_at DESC").page(params[:page]).per(9)
   end
 
+  def search
+    @parties = Party.search(params[:keyword])
+  end
 
   private
 

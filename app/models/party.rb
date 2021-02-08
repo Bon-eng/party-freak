@@ -10,6 +10,14 @@ class Party < ApplicationRecord
   belongs_to :country
   belongs_to :genre
 
+  def self.search(search)
+    if search != ""
+      Party.where('introduction LIKE(?)', "%#{search}%")
+    else
+      Party.all
+    end
+  end
+
   with_options presence: true do
     validates :name
     validates :introduction

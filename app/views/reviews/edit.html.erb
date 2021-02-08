@@ -3,7 +3,7 @@
     <h3><strong>編集する</strong></h3>
   </div>
 
-  <%= form_with model: @review, url: edit_party_review_path(@review.id), local: true do |f| %>
+  <%= form_with model: @review, url: party_review_path(@review.party_id, @review.id), local: true do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
 
     <div class="form-group row">

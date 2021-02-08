@@ -1,0 +1,41 @@
+<div class="container marketing">
+  <div class="index-title">
+    <h2>Party一覧情報</h2>
+  </div>
+  
+  <%= form_with(url: search_parties_path, local: true, method: :get, class: "search-form") do |form| %>
+    <div class="form-group row justify-content-center">
+      <div class="col-md-5 center-block">
+        <%= form.text_field :keyword, placeholder: "Party検索", class: "form-control" %>
+      </div>
+        <%= form.submit "検索", class: "search-btn" %>
+    </div>
+  <% end %>
+  
+  <div class="row">
+    <% @parties.each do |party| %>
+      <div class="col-lg-4">
+        <div class="party-image-content">
+          <%= image_tag party.image, width: '360', height: '280' %>
+        </div>
+        <div class="party-name-content">
+          <strong><h2><%= party.name %></h2></strong>
+        </div>
+        <div class="party-country-content">
+          <h5><small class="text-muted">開催地域</small></h5>
+          <h4><%= party.country.name %></h4>
+        </div>
+        <div class="party-genre-content">
+          <h5><small class="text-muted">ジャンル</small></h5>
+          <h4><%= party.genre.name %></h4>
+        </div>
+        <div class="show-button">
+          <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "詳細を見る", party_path(party.id), class: 'text-reset' %></button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+</div>

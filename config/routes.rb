@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :parties do
     resources :reviews, only: [:index, :create, :show, :edit, :update, :destroy]
     collection do
-      get 'indexall'
+      get 'lineup'
+      get 'search'
     end
   end
 

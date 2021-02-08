@@ -280,3 +280,21 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   text-align: center;
   padding: 20px 0 20px 0;
 }
+
+/*indexall周り*/
+
+.index-title {
+  text-align: center;
+  padding: 20px;0
+}
+
+.party-name-content,
+.party-country-content,
+.party-genre-content {
+  padding: 5px 0;
+  letter-spacing: 0.01em
+}
+
+.search-form {
+  
+}

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :review_find, only: [:show, :edit, :update, :destroy]
+  before_action :review_find, only: [:show, :update, :destroy]
 
   def index
     @reviews = @user.reviews
@@ -18,6 +18,8 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    # @party = Party.find(params[party.id])
+    @review = Review.find(params[:id])
   end
 
   def update
