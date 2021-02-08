@@ -1,8 +1,8 @@
 FactoryBot.define do
 
-  factory :user do
-    nickname              { Faker::JapaneseMedia::Doraemon.character }
-    email                 { Faker::Internet.free_email }
+  factory :party do
+    name              { Faker::JapaneseMedia::Doraemon.character }
+    introduction                 { Faker::Internet.free_email }
     password              { Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
     gender_id             { 2 }

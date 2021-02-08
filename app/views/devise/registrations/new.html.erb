@@ -46,12 +46,6 @@
         <%= f.text_area :profile, placeholder: "プロフィールを入力してください(必須・200文字まで)" ,rows: "5" , maxlength:"200", class: "form-control" %>
       </div>
     </div>
-    <div class="form-group row">
-      <%= f.label :image, "画像", class: "col-md-3 col-form-label" %>
-      <div class="col-md-9 ">
-        <%= f.file_field :image, class: "form-control-file" %>
-      </div>
-    </div>
     <div class="actions">
       <%= f.submit "新規登録", class: :form__btn  %>
     </div>
