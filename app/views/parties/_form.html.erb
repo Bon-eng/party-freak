@@ -1,40 +1,56 @@
 <%= form_with(model: party, local: true) do |f|%>
-  <div class="field">
-    <%= f.label :name, "Partyの名前" %><br />
-    <%= f.text_field :name %>
+<%= render 'shared/error_messages', model: f.object %>
+
+  <div class="form-group row">
+    <%= f.label :name, "Partyの名前", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :introduction, "紹介文" %><br />
-    <%= f.text_area :introduction, class: :form__text %>
+  <div class="form-group row">
+    <%= f.label :introduction, "紹介文", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.text_area :introduction, class: "form-control", rows: "10" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :season_id, "開催時期" %><br />
-    <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"select_box", id:"party-season"}) %>
+  <div class="form-group row">
+    <%= f.label :season_id, "開催時期", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.collection_select(:season_id, Season.all, :id, :name, {}, {class:"select_box form-control", id:"party-season"}) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :country_id, "開催地域" %><br />
-    <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {class:"select_box", id:"party-country"}) %>
+  <div class="form-group row">
+    <%= f.label :country_id, "開催地域", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {class:"select_box form-control", id:"party-country"}) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :genre_id, "ジャンル" %><br />
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select_box", id:"party-genre"}) %>
+  <div class="form-group row">
+    <%= f.label :genre_id, "ジャンル", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select_box form-control", id:"party-genre"}) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :official_url, "オフィシャルHP" %><br />
-    <%= f.text_field :official_url, class: :form__text %>
+  <div class="form-group row">
+    <%= f.label :official_url, "オフィシャルHP", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.text_field :official_url, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :image, "画像" %><br />
-    <%= f.file_field :image %>
+  <div class="form-group row">
+    <%= f.label :image, "画像", class: "col-md-3 col-form-label" %>
+    <div class="col-md-9 ">
+      <%= f.file_field :image, class: "form-control-file" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn %>
+    <%= f.submit "保存", class: :form__btn  %>
   </div>
 <% end %>

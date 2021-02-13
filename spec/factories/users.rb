@@ -8,6 +8,6 @@ FactoryBot.define do
     gender_id             { 2 }
     profile               {Faker::JapaneseMedia::Doraemon.gadget}
     genre_id              { 2 }
-
+    admin                 { false }
   end
 end

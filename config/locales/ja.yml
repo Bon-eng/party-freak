@@ -12,4 +12,11 @@ ja:
         content: レビュー本文
         image: 画像
 
-  
+      party:
+        name: Partyの名前
+        introduction: 紹介文
+        season_id: 開催時期
+        country_id: 開催地域
+        genre_id: ジャンル
+        official_url: オフィシャルHP
+        image: 画像

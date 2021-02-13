@@ -11,11 +11,6 @@ RSpec.describe User, type: :model do
     it '記入欄の全てが存在すれば登録できる' do
       expect(@user).to be_valid
     end
-    
-    it '画像がなくても登録できる' do
-      @user.image = nil
-      expect(@user).to be_valid
-    end
   end
 
 

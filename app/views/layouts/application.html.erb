@@ -32,6 +32,9 @@
   </head>
   <body>
     <%= render "shared/header" %>
+    <div class="container">
+      <%= render 'shared/flash_message'%>
+    </div>
       <%= yield %>
     <%= render "shared/footer" %>
 

@@ -21,6 +21,7 @@ class Party < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :introduction
+    validates :official_url
     validates :image
 
     with_options numericality: { other_than: 1, message: "を入力してください"} do

@@ -1,9 +1,6 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">Party編集</h2>
-      <%# 部分テンプレートでフォームを表示する %>
-      <%= render partial: "form", locals: {party: @party}%>
-    </div>
+<div class="container">
+  <div class="party_title">
+    <h3><strong>Partyを編集する</strong></h3>
   </div>
+  <%= render partial: "form", locals: {party:@party} %>
 </div>
