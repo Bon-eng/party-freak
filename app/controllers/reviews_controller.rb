@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :review_find, only: [:show, :update, :destroy]
+  before_action :review_find, only: [:show, :update, :edit, :destroy]
 
   def index
     @reviews = @user.reviews
@@ -11,28 +11,29 @@ class ReviewsController < ApplicationController
     # @review = Party.find(params[:party_id])
     # @reviews = @party.reviews.includes(:user)
     if @review.save
-      redirect_to party_path(@review.party)
+      redirect_to party_path(@review.party), dark: 'レビューの投稿ができました'
     else
+      flash[:danger] = 'レビューの投稿ができませんでした'
       render "parties/show"
+      # redirect_to party_path(@review.party)
     end
   end
 
   def edit
-    # @party = Party.find(params[party.id])
-    @review = Review.find(params[:id])
   end
 
   def update
     if @review.update(review_params)
-      redirect_to root_path
+      redirect_to party_path(@review.party), dark: 'レビューの編集ができました'
     else
+      flash[:danger] = 'レビューの編集ができませんでした'
       render :edit
     end
   end
 
   def destroy
     @review.destroy
-    redirect_to root_path
+    redirect_to party_path(@review.party), danger: 'レビューの削除ができました'
   end
 
   def show

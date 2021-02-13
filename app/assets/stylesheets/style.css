@@ -32,6 +32,22 @@ footer p {
   margin-bottom: .25rem;
 }
 
+/*エラーメッセージ*/
+.field_with_errors {
+  display: contents;
+}
+
+.error-alert {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/*flashメッセージ*/
+.alert {
+  padding-top: 25px;
+}
+
 /*ヘッダー周り*/
 .greeting {
   margin-right: 30px;
@@ -253,6 +269,11 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   text-align: center;
 }
 
+/*Party新規登録周り*/
+.party_title {
+  padding-top: 20px;
+  text-align: center;
+}
 
 /*レビュー編集周り*/
 .edit_title {
@@ -285,7 +306,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 
 .index-title {
   text-align: center;
-  padding: 20px;0
+  padding: 20px;
 }
 
 .party-name-content,

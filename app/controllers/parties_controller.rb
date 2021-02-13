@@ -16,8 +16,9 @@ class PartiesController < ApplicationController
   def create
     @party = Party.new(party_params)
     if @party.save
-      redirect_to root_path
+      redirect_to @party, dark: 'Partyの投稿ができました'
     else
+      flash[:danger] = 'Partyの投稿ができませんでした'
       render :new
     end
   end
@@ -32,15 +33,16 @@ class PartiesController < ApplicationController
 
   def update
     if @party.update(party_params)
-      redirect_to root_path
+      redirect_to @party, dark: 'Partyの編集ができました'
     else
+      flash[:danger] = 'Partyの編集ができませんでした'
       render :edit
     end
   end
 
   def destroy
     @party.destroy
-    redirect_to root_path
+    redirect_to root_path, danger: 'Partyの削除ができました'
   end
 
   def lineup

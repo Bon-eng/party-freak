@@ -9,6 +9,7 @@ FactoryBot.define do
     official_url { Faker::JapaneseMedia::Doraemon.character }
 
     association :user
+    
 
     after(:build) do |party|
       party.image.attach(io: File.open('public/images/test_image.jpg'), filename: 'test_image.jpg')

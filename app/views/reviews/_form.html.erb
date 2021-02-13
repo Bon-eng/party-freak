@@ -4,7 +4,7 @@
     <h3><strong>レビューを投稿する</strong></h3>
   </div>
 
-  <%= form_with model: @review, url: party_reviews_path(party), local: true do |f| %>
+  <%= form_with model:[@party, @review], url: party_reviews_path(party, @review.party), local: true do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
 
     <div class="form-group row">
