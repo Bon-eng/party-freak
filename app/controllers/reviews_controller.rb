@@ -14,6 +14,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to party_path(@review.party), dark: 'レビューの投稿ができました'
     else
+      @party = Party.find(params[:party_id])
+      @reviews = @party.reviews.includes(:user)
       flash[:danger] = 'レビューの投稿ができませんでした'
       render "parties/show"
       # redirect_to party_path(@review.party)

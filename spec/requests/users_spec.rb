@@ -8,12 +8,12 @@ describe UsersController, type: :request do
     @review = FactoryBot.build(:review)
   end
 
-  describe "GET #index" do
-    it "indexアクションにリクエストすると正常にレスポンスが返ってくる" do
-      get user_path(@user.id)
-      binding.pry
+  describe "GET /sessions/new" do
+    it "ログインページにリクエストすると正常にレスポンスが返ってくる" do
+      get new_user_session_path
       expect(response.status).to eq 200
     end
+
     # it "indexアクションにリクエストするとレスポンスに投稿済みのpartyの名前が存在する" do
     #   get root_path
     #   expect(response.body).to include(@review.title)
@@ -21,11 +21,13 @@ describe UsersController, type: :request do
     #   expect(assigns(:party)).to eq party
     # end
   end
-  # describe "GET #show" do
-  #   it "indexアクションにリクエストすると正常にレスポンスが返ってくる" do
-  #     get root_path
-  #     expect(response.status).to eq 200
-  #   end
 
+  # describe 'user1で' do
+  #   it 'ログインに成功すること' do
+  #     get new_user_session_path(@user.id)
+  #     binding.pry
+  #     expect(response).to redirect_to root_path
+  #   end
   # end
+
 end
