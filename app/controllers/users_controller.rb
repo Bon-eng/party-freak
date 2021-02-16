@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @user.id
+      redirect_to root_path, danger: '無効なURLです'
+    end
   end
 
   private

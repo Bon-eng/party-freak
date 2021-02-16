@@ -9,34 +9,36 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    # @review = Party.find(params[:party_id])
-    # @reviews = @party.reviews.includes(:user)
     if @review.save
-      redirect_to party_path(@review.party), dark: 'レビューの投稿ができました'
+      redirect_to party_path(@review.party), notice: 'レビューの投稿ができました'
     else
       @party = Party.find(params[:party_id])
       @reviews = @party.reviews.includes(:user)
-      flash[:danger] = 'レビューの投稿ができませんでした'
+      flash[:error] = 'レビューの投稿ができませんでした'
       render "parties/show"
-      # redirect_to party_path(@review.party)
     end
   end
 
   def edit
+    unless current_user.id == @review.user_id
+      redirect_to root_path
+      flash[:error] = '無効なURLです'
+    end
   end
 
   def update
     if @review.update(review_params)
-      redirect_to party_path(@review.party), dark: 'レビューの編集ができました'
+      redirect_to party_path(@review.party), notice: 'レビューの編集ができました'
     else
-      flash[:danger] = 'レビューの編集ができませんでした'
+      flash[:error] = 'レビューの編集ができませんでした'
       render :edit
     end
   end
 
   def destroy
     @review.destroy
-    redirect_to party_path(@review.party), danger: 'レビューの削除ができました'
+    redirect_to party_path(@review.party)
+    flash[:error] = 'レビューの削除ができました'
   end
 
   def show
