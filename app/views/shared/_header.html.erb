@@ -16,7 +16,7 @@
       <% if user_signed_in? %>
         <div class="greeting">
           ようこそ！
-          <%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: 'text-reset' %>
+          <%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: ' user_name text-reset' %>
         </div>
         <div class="nav__right"> 
           <button type="button" class="btn btn-outline-light">

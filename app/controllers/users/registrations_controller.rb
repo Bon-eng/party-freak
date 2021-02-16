@@ -26,10 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated
-      redirect_to @user, dark: 'ユーザー情報の編集ができました'
+      redirect_to @user, notice: 'ユーザー情報の編集ができました。'
       bypass_sign_in resource, scope: resource_name if sign_in_after_change_password?
     else
-      flash[:danger] = 'ユーザー情報の編集ができませんでした'
+      flash[:error] = 'ユーザー情報の編集ができませんでした。'
       clean_up_passwords resource
       set_minimum_password_length
       respond_with resource

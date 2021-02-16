@@ -53,6 +53,9 @@ footer p {
   margin-right: 30px;
 }
 
+.user_name {
+
+}
 .navbar {
   color: white;
 }
@@ -307,6 +310,21 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   text-align: center;
 }
 
+.profile_gender {
+  padding-top: 5px;
+}
+
+.profile_genre {
+  padding-top:  5px;
+}
+
+.profile_value {
+  padding-top: 5px;
+}
+
+.profile_btn {
+  margin-top: 20px;
+}
 /*indexall周り*/
 
 .index-title {
