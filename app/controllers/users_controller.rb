@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def edit
     unless current_user.id == @user.id
-      redirect_to root_path, danger: '無効なURLです'
+      redirect_to root_path
+      flash[:error] = '無効なURLです'
     end
   end
 

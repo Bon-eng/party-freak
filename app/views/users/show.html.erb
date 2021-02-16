@@ -2,7 +2,9 @@
   <div class="user_profile">
     <% if user_signed_in? && @user.id === current_user.id %>
       <div class="user_manage">
-        <%= link_to "編集する", edit_user_path(@user.id), class: :party__btn %>
+        <button type="button" class="btn btn-info profile_btn">
+          <%= link_to "編集する", edit_user_path(@user.id), class: 'text-reset' %>
+        </button>
       </div>
     <% end %>
     <h2 class="name_text_center">
@@ -12,13 +14,13 @@
       <ul>
         <li>
           <div class="profile_label">性別</div>
-          <div class="profile_value">
-            <%= @user.gender.name %>
+          <div class="profile_gender">
+            <h3><%= @user.gender.name %></h3>
           </div>
         </li>
         <li class="last_profile" style="border-right: none;">
-          <div class="profile_label">好きなジャンル</div>
-          <div class="profile_value">
+          <div class="profile_label">好きなジャンル</div></h3>
+          <h3><div class="profile_genre">
             <%= @user.genre.name %>
           </div>
         </li>
@@ -27,7 +29,7 @@
     <div class="profile_comment">
       <div class="profile_label">プロフィール</div>
       <div class="profile_value">
-        <%= @user.profile %>
+        <h3><%= @user.profile %></h3>
       </div>
     </div>
   </div>
