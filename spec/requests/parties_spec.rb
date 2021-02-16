@@ -16,8 +16,7 @@ describe PartiesController, type: :request do
 
     it "@partyが期待される値を持つ" do
       get root_path
-      binding.pry
-      expect(response.body).to eq (@party.length = 3)
+      expect(response.body).to eq @party.length = 3
     end
 
     # it "indexアクションにリクエストするとレスポンスに投稿済みのpartyの名前が存在する" do

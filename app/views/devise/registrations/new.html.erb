@@ -31,13 +31,13 @@
     <div class="form-group row">
       <%= f.label :gender_id, "性別", class: "col-md-3 col-form-label" %>
       <div class="col-md-9 ">
-        <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select_box form-control", id:"user-gender"}) %>
+        <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select_box form-control", id:"user_gender_id"}) %>
       </div>
     </div>
     <div class="form-group row">
       <%= f.label :genre_id, "好きなジャンル", class: "col-md-3 col-form-label" %>
       <div class="col-md-9 ">
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select_box form-control", id:"party-genre"}) %>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select_box form-control", id:"user_genre_id"}) %>
       </div>
     </div>
     <div class="form-group row">
