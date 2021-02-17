@@ -299,6 +299,9 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   letter-spacing: 0.1em
 }
 
+.party_btn {
+  margin: 20px;
+}
 /*ユーザー新規登録周り*/
 .registration_title {
   text-align: center;

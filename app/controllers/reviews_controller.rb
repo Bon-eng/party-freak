@@ -21,8 +21,7 @@ class ReviewsController < ApplicationController
 
   def edit
     unless current_user.id == @review.user_id
-      redirect_to root_path
-      flash[:error] = '無効なURLです'
+      redirect_to root_path, alert: '無効なURLです'
     end
   end
 
@@ -37,8 +36,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to party_path(@review.party)
-    flash[:error] = 'レビューの削除ができました'
+    redirect_to party_path(@review.party), alert: 'レビューの削除ができました'
   end
 
   def show

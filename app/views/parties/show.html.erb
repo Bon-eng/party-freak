@@ -3,8 +3,12 @@
   <%# ⬇️⬇️⬇️adminユーザーだけが編集&削除できる⬇️⬇️⬇️ %>
     <% if user_signed_in? && current_user.admin? %>
       <div class="party__manage">
-        <%= link_to "編集する", edit_party_path, class: :party__btn %>
-        <%= link_to "削除する", party_path, method: :delete, class: :party__btn %>
+        <button type="button" class="btn btn-info party_btn">
+          <%= link_to "編集する", edit_party_path, class: 'text-reset' %>
+        </button>
+        <button type="button" class="btn btn-secondary party_btn">
+          <%= link_to "削除する", party_path, method: :delete, class: 'text-reset' %>
+        </button>
       </div>
     <% end %>
   <%# ⬆️⬆️⬆️adminユーザーだけが編集&削除できる⬆️⬆️⬆️ %>
