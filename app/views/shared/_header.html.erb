@@ -23,7 +23,9 @@
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'text-reset' %>
           </button>
           <% if current_user.admin? %>
-            <%= link_to "New Party", new_party_path, class: 'text-reset' %>
+            <button type="button" class="btn btn-secondary ">
+              <%= link_to "New Party", new_party_path, class: 'text-reset' %>
+            </button>
           <% end %>
         </div> 
       <% else %>

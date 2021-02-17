@@ -5,8 +5,12 @@
   <div class="col-md-5 align-self-center">
     <% if user_signed_in? && current_user.id == review.user_id %>
       <div class="party__manage">
-        <%= link_to "編集する", edit_party_review_path(review.party_id, review.id), class: :party__btn %>
-        <%= link_to "削除する", party_review_path(review.party_id, review.id), method: :delete %>
+        <button type="button" class="btn btn-info">
+          <%= link_to "編集する", edit_party_review_path(review.party_id, review.id), class: 'text-reset' %>
+        </button>
+        <button type="button" class="btn btn-secondary">
+          <%= link_to "削除する", party_review_path(review.party_id, review.id), method: :delete, class: 'text-reset' %>
+        </button>
       </div>
     <% end %>
     <h4><%= review.title %></h4>

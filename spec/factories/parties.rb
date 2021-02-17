@@ -1,12 +1,12 @@
 FactoryBot.define do
 
   factory :party do
-    name         { Faker::JapaneseMedia::Doraemon.character }
-    introduction { Faker::JapaneseMedia::Doraemon.character }
+    name         { '骨川スネ夫' }
+    introduction { 'うちのパパ、えらいんだぞ。社長だぞ。' }
     season_id    { 2 }
     country_id   { 2 }
     genre_id     { 2 }
-    official_url { Faker::JapaneseMedia::Doraemon.character }
+    official_url { 'https://www.suneo.com' }
 
     association :user
     

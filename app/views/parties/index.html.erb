@@ -62,7 +62,9 @@
             <h4><%= party.genre.name %></h4>
           </div>
           <div class="show-button">
-            <button type="button" class="btn btn-outline-secondary rounded-pill"><%= link_to "詳細を見る", party_path(party.id), class: 'text-reset' %></button>
+            <button type="button" class="btn btn-outline-secondary rounded-pill">
+              <%= link_to "詳細を見る", party_path(party.id), class: 'text-reset' %>
+            </button>
           </div>
         </div>
       <% end %>
@@ -73,8 +75,10 @@
       <% @review.first(3).each do |review| %>
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= review.title %></h2>
-          <p class="lead"><%= review.content. truncate(50) %>
-          <%= link_to "続きをみる", party_path(review.party.id) %></p>
+          <p class="lead"><%= review.content. truncate(50) %></p>
+          <button type="button" class="btn btn-outline-secondary btn-sm continue_content">
+            <%= link_to "続きをみる", party_path(review.party.id), class: 'text-reset' %>
+          </button>
         </div>
         <div class="col-md-5 align-self-center">
           <%= image_tag review.image, class: 'img-thumbnail' %>

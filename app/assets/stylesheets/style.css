@@ -239,6 +239,11 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   animation-delay: 1s;
 }
 
+/*topページ周り*/
+.continue_content {
+  vertical-align:middle;
+}
+
 /*ユーザープロフィール*/
 .name_text_center{
   text-align: center;

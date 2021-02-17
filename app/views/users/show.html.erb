@@ -2,8 +2,8 @@
   <div class="user_profile">
     <% if user_signed_in? && @user.id === current_user.id %>
       <div class="user_manage">
-        <button type="button" class="btn btn-info profile_btn">
-          <%= link_to "編集する", edit_user_path(@user.id), class: 'text-reset' %>
+        <button type="button" class="btn btn-outline-info profile_btn">
+          <%= link_to "ユーザー情報を編集する", edit_user_path(@user.id), class: 'text-reset' %>
         </button>
       </div>
     <% end %>
