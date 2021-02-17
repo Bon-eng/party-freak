@@ -16,9 +16,9 @@ class PartiesController < ApplicationController
   def create
     @party = Party.new(party_params)
     if @party.save
-      redirect_to @party, notice: 'Partyの投稿ができました'
+      redirect_to @party, notice: 'Partyの投稿ができました。'
     else
-      flash[:error] = 'Partyの投稿ができませんでした'
+      flash[:error] = 'Partyの投稿ができませんでした。'
       render :new
     end
   end
@@ -33,9 +33,9 @@ class PartiesController < ApplicationController
 
   def update
     if @party.update(party_params)
-      redirect_to @party, notice: 'Partyの編集ができました'
+      redirect_to @party, notice: 'Partyの編集ができました。'
     else
-      flash[:error] = 'Partyの編集ができませんでした'
+      flash[:error] = 'Partyの編集ができませんでした。'
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class PartiesController < ApplicationController
   def destroy
     @party.destroy
     redirect_to root_path
-    flash[:error] = 'Partyの削除ができました'
+    flash[:error] = 'Partyの削除ができました。'
   end
 
   def lineup
@@ -68,7 +68,7 @@ class PartiesController < ApplicationController
 
   def admin_user
     unless current_user.admin?
-      redirect_to root_path 
+      redirect_to root_path, alert: '無効なURLです。'
     end
   end
 

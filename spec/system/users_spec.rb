@@ -12,7 +12,7 @@ RSpec.describe 'User', type: :system do
       # トップページに新規登録ボタンがあることを確認する
       expect(page).to have_content('新規登録')
       # 新規登録ページへ移動する
-      visit new_user_registration_path
+      click_link '新規登録'
       # ユーザー情報を入力する
       fill_in 'メールアドレス', with: @user.email
       fill_in 'パスワード（6文字以上）', with: @user.password
@@ -41,7 +41,7 @@ RSpec.describe 'User', type: :system do
       # トップページに新規登録ボタンがあることを確認する
       expect(page).to have_content('新規登録')
       # 新規登録ページへ移動する
-      visit new_user_registration_path
+      click_link '新規登録'
       # ユーザー情報を入力する
       fill_in 'メールアドレス', with: ""
       fill_in 'パスワード（6文字以上）', with: ""
@@ -67,7 +67,7 @@ RSpec.describe 'User', type: :system do
         # トップページにログインボタンがあることを確認する
         expect(page).to have_content('ログイン')
         # ログインページへ遷移する
-        visit new_user_session_path
+        click_link 'ログイン'
         # 保存されているユーザー情報を入力する
         fill_in 'メールアドレス', with: user.email
         fill_in 'パスワード', with: user.password
@@ -91,7 +91,7 @@ RSpec.describe 'User', type: :system do
         # トップページにログインページへ遷移するボタンがあることを確認する
         expect(page).to have_content('ログイン')
         # ログインページへ遷移する
-        visit new_user_session_path
+        click_link 'ログイン'
         # ユーザー情報を入力する
         fill_in 'メールアドレス', with: ''
         fill_in 'パスワード', with: ''
@@ -170,7 +170,7 @@ RSpec.describe 'User', type: :system do
           expect(page).to have_content('好きなジャンル')
           # プロフィールが表示されていることを確認する
           expect(page).to have_content('プロフィール')
-          # 「ユーザー情報の編集ができました」のflashメッセージが表示されていることを確認する
+          # 「ユーザー情報の編集ができました。」のflashメッセージが表示されていることを確認する
           expect(page).to have_content 'ユーザー情報の編集ができました。'
           # 編集した内容が表示されていることを確認する
           expect(page).to have_content '無回答'
