@@ -10,11 +10,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to party_path(@review.party), notice: 'レビューの投稿ができました'
+      redirect_to party_path(@review.party), notice: 'レビューの投稿ができました。'
     else
       @party = Party.find(params[:party_id])
       @reviews = @party.reviews.includes(:user)
-      flash[:error] = 'レビューの投稿ができませんでした'
+      flash[:error] = 'レビューの投稿ができませんでした。'
       render "parties/show"
     end
   end
@@ -27,16 +27,16 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to party_path(@review.party), notice: 'レビューの編集ができました'
+      redirect_to party_path(@review.party), notice: 'レビューの編集ができました。'
     else
-      flash[:error] = 'レビューの編集ができませんでした'
+      flash[:error] = 'レビューの編集ができませんでした。'
       render :edit
     end
   end
 
   def destroy
     @review.destroy
-    redirect_to party_path(@review.party), alert: 'レビューの削除ができました'
+    redirect_to party_path(@review.party), alert: 'レビューの削除ができました。'
   end
 
   def show

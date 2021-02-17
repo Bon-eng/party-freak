@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :review do
-    title       { Faker::JapaneseMedia::Doraemon.gadget }
-    content     { Faker::JapaneseMedia::Doraemon.gadget }
+    title       { 'おまえのものはおれのもの' }
+    content     { 'おれのものもおれのもの' }
 
     association :user
     association :party

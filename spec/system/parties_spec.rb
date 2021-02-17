@@ -70,12 +70,12 @@ RSpec.describe "Parties", type: :system do
       end
     end
   end
-
+  
   describe 'Partyの編集と削除' do
+    let(:party) { FactoryBot.create(:party, user_id: user.id) }
     before do
-      @party = FactoryBot.create(:party)
       login(admin_user)
-      end
+    end
     context 'Partyの編集ができるとき' do
       it '全ての項目が入力されていると編集できる' do
         # 表示されている詳細を見るをクリック
