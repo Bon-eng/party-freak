@@ -52,5 +52,6 @@ production:
   database: party_freak_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
   # /var/lib/mysql/mysql.sock
+  # /tmp/mysql.sock
