@@ -66,9 +66,14 @@ gem 'active_hash'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
+# ページリンク
 gem 'rinku'
 
+# 日本語化
 gem 'rails-i18n'
 
+# ページネーション
 gem 'kaminari'
 
+# S3使用のためのgem
+gem "aws-sdk-s3", require: false
