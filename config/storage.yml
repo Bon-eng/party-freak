@@ -11,7 +11,7 @@ local:
 amazon:
  service: S3
  region: ap-northeast-1
- bucket: pome2021
+ bucket: bon-eng
  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>               #ENVで環境変数を読み込む記述
  secret_access_key:  <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
 
