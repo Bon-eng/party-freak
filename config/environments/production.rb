@@ -27,7 +27,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   #      デプロイ時にpipline関連のエラーが出た場合はfalseからtrueに変更
-  config.assets.compile = false
+  config.assets.compile = true
 
 
 
