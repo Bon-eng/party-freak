@@ -29,7 +29,7 @@ Rails.application.configure do
   #      デプロイ時にpipline関連のエラーが出た場合はfalseからtrueに変更
   config.assets.compile = true
 
-  config.assets.debug = false
+
 
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
