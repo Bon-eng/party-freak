@@ -34,6 +34,7 @@ class User < ApplicationRecord
       user.profile = 'ログインありがとうございます。'
       user.gender_id = '4'
       user.genre_id = '9'
+      user.confirmed_at = Time.now
     end
   end
 
