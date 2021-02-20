@@ -3,7 +3,7 @@
     <h2>Party一覧情報</h2>
   </div>
   
-  <%= form_with(url: search_parties_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form_with(url: search_parties_path, local: true, method: :get ) do |form| %>
     <div class="form-group row justify-content-center">
       <div class="col-md-5 center-block">
         <%= form.text_field :keyword, placeholder: "Party検索", class: "form-control" %>

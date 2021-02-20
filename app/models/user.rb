@@ -27,4 +27,14 @@ class User < ApplicationRecord
   # パスワードが一致していなければいけない
   validates :password, confirmation: true, on: :create
 
+  def self.guest
+    find_or_create_by!(email: 'test@test.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = 'ゲストユーザー'
+      user.profile = 'ログインありがとうございます。'
+      user.gender_id = '4'
+      user.genre_id = '9'
+    end
+  end
+
 end
