@@ -211,7 +211,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 .fadeIn.first {
-  padding-top: 40px;
+  padding-top: 20px;
   font-size: x-large;
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
@@ -219,7 +219,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 .fadeIn.second {
-  padding-top: 40px;
+  padding-top: 20px;
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
@@ -239,6 +239,12 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   animation-delay: 1s;
 }
 
+.fadeIn.fifth {
+  padding-top: 20px;
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
 /*topページ周り*/
 .continue_content {
   vertical-align:middle;
@@ -333,6 +339,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 .profile_btn {
   margin-top: 20px;
 }
+
 /*indexall周り*/
 
 .index-title {
@@ -347,6 +354,6 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   letter-spacing: 0.01em
 }
 
-.search-form {
-  
+.center-block {
+  padding-top: 10px;
 }

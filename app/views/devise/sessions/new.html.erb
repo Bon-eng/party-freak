@@ -1,7 +1,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <div class="fadeIn first">
-      おかえりなさい
+      ログイン
     </div>
     <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
       <div class="fadeIn second" >
@@ -13,7 +13,12 @@
         <%= f.password_field :password, autocomplete: "current-password", placeholder:"6文字以上の半角英数字" %>
       </div>
       <div class="fadeIn fourth" >
-        <%= f.submit "ログイン", class: :form__btn  %>
+        <%= f.submit "ログイン", class: :form__btn %>
+      </div>
+    <% end %>
+    <%= form_with model: @user, url: users_guest_sign_in_path, method: :post, local: true do |f| %>
+      <div class="fadeIn fifth">
+        <%= f.submit "ゲストログインはこちら" %>
       </div>
     <% end %>
   </div>
