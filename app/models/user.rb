@@ -28,8 +28,8 @@ class User < ApplicationRecord
   validates :password, confirmation: true, on: :create
 
   def self.guest
-    find_or_create_by!(email: 'test@test.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
+    find_or_create_by!(email: 'guest@test.com') do |user|
+      user.password = SecureRandom.alphanumeric(10) + [*'a'..'z'].sample(1).join + [*'0'..'9'].sample(1).join
       user.nickname = 'ゲストユーザー'
       user.profile = 'ログインありがとうございます。'
       user.gender_id = '4'
