@@ -1,49 +1,27 @@
-# README
+# Party Freak
 
 
+![adbac2fd606f57d7c9db9b76621c0dcc](https://user-images.githubusercontent.com/74911358/108613332-37e7ed80-7434-11eb-9f2c-64c86c61cedb.jpg)
 
-## users テーブル
-| Column    | Type    | Options                   |
-| --------  | ------- | ------------------------- |
-| nickname  | string  | null: false               |
-| email     | string  | null: false, unique: true |
-| password  | string  | null: false               |
-| gender_id | integer | null: false               |
-| profile   | text    |                           |
-| genre_id  | integer |                           |
+## 概要
 
-### Association
-- has_many :parties
-- has_many :reviews
+💃Party Freak🕺
 
+イベント、ライヴ、フェス、コンサート・・・
+日本では音楽イベントを様々な呼び方で表現していますが、
+ここでは、「Party」と呼んでいます。
+この言葉には
+・社交的な集まり
+・ある目的で集まった集合体
+こんな意味があります。
 
+日本では数時間から長くても2泊3日程度ですが、
+海外のPartyでは短くて3日、長くて10日に及ぶものがあります。
+そこでは音楽だけでなく、アートや演劇、サーカスまで。
+音楽を楽しむというよりは、「そこで生活をする」というのがぴったりかもしれません。
 
-## parties テーブル
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| name         | string  | null: false |
-| introduction | text    | null: false |
-| season_id    | integer | null: false |
-| country_id   | integer | null: false |
-| genre_id     | integer | null: false |
-| official_url | string  | null: false |
+海外に自由に行けなくなってしまったこんな今だからこそ知ってもらいたい。
+世界中には、あなたの想像を遥かに超えるスケールのPartyがあることを。
 
-
-### Association
-- belongs_to :party
-- has_many :reviews
-
-
-
-## reviews テーブル
-| Column   | Type       | Options           |
-| -------- | ---------- | ----------------- |
-| title    | string     | null: false       |
-| content  | text       | null: false       |
-| score    | float      | null: false       |
-| user     | references | foreign_key: true |
-| party    | references | foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :party
+この素晴らしい世界を少しだけ覗いてみてください。
+経験者が教えてくれるレビューで、あなたがFreak(熱狂する人)になってくれれば嬉しく思います。
