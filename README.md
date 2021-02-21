@@ -3,6 +3,8 @@
 
 ![adbac2fd606f57d7c9db9b76621c0dcc](https://user-images.githubusercontent.com/74911358/108613332-37e7ed80-7434-11eb-9f2c-64c86c61cedb.jpg)
 
+[https://www.party-freak.com/](https://www.party-freak.com/)
+
 # 概要と開発した背景
 
 海外のPartyは日本の規模とは比べ物にならないものばかりで、作者も初めて行った時に全身で感じた感動は一生忘れられません。<br>
@@ -50,6 +52,7 @@
 
 ## 苦労した点
 - deviseを導入しましたが、User情報の編集をするときにパスワードのバリデーションがかかって編集ができなくなってしまったこと
+- AWSへのデプロイ時にエラーが連発して思うように進まなかったこと
 
 
 
@@ -63,22 +66,22 @@
 
 
 ## 使用技術など
-【フロントエンド】  
+#### 【フロントエンド】  
 ・HTML/CSS、Bootstrap<br>    
 
-【バックエンド】  
+#### 【バックエンド】  
 ・Ruby  
 ・Ruby on Rails    
 
-【データベース】  
+#### 【データベース】  
 ・MySQL    
 
-【インフラ】  
-・AWS(S3、EC2、Route 53)  
+#### 【インフラ】  
+・AWS(S3、EC2、Route 53、ACM)  
 ・Nginx、Unicorn、MariaDB  
 ・Capistrano    
 
-【その他】  
+#### 【その他】  
 ・Rspec、Rubocop  
 ・GitHub  
 ・Slack  
@@ -115,3 +118,4 @@
 
 
 
+ご覧いただきありがとうございました。
