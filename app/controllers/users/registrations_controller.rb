@@ -18,13 +18,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   protected
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
 
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
-      keys: [:nickname, :gender_id, :profile, :genre_id])
+                                      keys: [:nickname, :gender_id, :profile, :genre_id])
   end
-
 end

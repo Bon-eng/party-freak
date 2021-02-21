@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 describe UsersController, type: :request do
-
   before do
     @user = FactoryBot.build(:user)
     @party = FactoryBot.build(:party)
     @review = FactoryBot.build(:review)
   end
 
-  describe "GET /sessions/new" do
-    it "ログインページにリクエストすると正常にレスポンスが返ってくる" do
+  describe 'GET /sessions/new' do
+    it 'ログインページにリクエストすると正常にレスポンスが返ってくる' do
       get new_user_session_path
       expect(response.status).to eq 200
     end
@@ -29,5 +28,4 @@ describe UsersController, type: :request do
   #     expect(response).to redirect_to root_path
   #   end
   # end
-
 end

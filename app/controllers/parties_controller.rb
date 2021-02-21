@@ -1,12 +1,11 @@
 class PartiesController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :admin_user, only: [:new, :edit, :destroy]
   before_action :party_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @party = Party.order("created_at DESC")
-    @review = Review.order("created_at DESC")
+    @party = Party.order('created_at DESC')
+    @review = Review.order('created_at DESC')
   end
 
   def new
@@ -47,7 +46,7 @@ class PartiesController < ApplicationController
   end
 
   def lineup
-    @party = Party.order("created_at DESC").page(params[:page]).per(9)
+    @party = Party.order('created_at DESC').page(params[:page]).per(9)
   end
 
   def search
@@ -67,9 +66,6 @@ class PartiesController < ApplicationController
   end
 
   def admin_user
-    unless current_user.admin?
-      redirect_to root_path, alert: '無効なURLです。'
-    end
+    redirect_to root_path, alert: '無効なURLです。' unless current_user.admin?
   end
-
 end

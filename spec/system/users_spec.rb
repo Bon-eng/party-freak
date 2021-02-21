@@ -5,7 +5,7 @@ RSpec.describe 'User', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
-  context 'ユーザー新規登録ができるとき' do 
+  context 'ユーザー新規登録ができるとき' do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       visit root_path
@@ -22,9 +22,9 @@ RSpec.describe 'User', type: :system do
       select 'EDM', from: '好きなジャンル'
       fill_in 'プロフィール', with: @user.profile
       # 新規登録ボタンを押すとユーザーモデルのカウントが1上がることを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       # トップページへ遷移したことを確認する
       expect(current_path).to eq root_path
       # ログアウトボタンが表示されていることを確認する
@@ -43,19 +43,19 @@ RSpec.describe 'User', type: :system do
       # 新規登録ページへ移動する
       click_link '新規登録'
       # ユーザー情報を入力する
-      fill_in 'メールアドレス', with: ""
-      fill_in 'パスワード（6文字以上）', with: ""
-      fill_in 'パスワード再入力', with: ""
-      fill_in 'ユーザー名', with: ""
+      fill_in 'メールアドレス', with: ''
+      fill_in 'パスワード（6文字以上）', with: ''
+      fill_in 'パスワード再入力', with: ''
+      fill_in 'ユーザー名', with: ''
       select '-----', from: '性別'
       select '-----', from: '好きなジャンル'
-      fill_in 'プロフィール', with: ""
+      fill_in 'プロフィール', with: ''
       # 新規登録ボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(0)
+      end.to change { User.count }.by(0)
       # 新規登録ページへ戻されることを確認する
-      expect(current_path).to eq "/users"
+      expect(current_path).to eq '/users'
     end
   end
 
@@ -129,7 +129,7 @@ RSpec.describe 'User', type: :system do
       context 'ユーザー情報に移動する' do
         it '表示されているユーザーの名前をクリックするとユーザー情報に移動する' do
           # 表示されているユーザーの名前をクリック
-          find(".user_name").click
+          find('.user_name').click
           # 性別が表示されていることを確認する
           expect(page).to have_css '.profile_gender'
           # 好きなジャンルが表示されていることを確認する
@@ -151,7 +151,9 @@ RSpec.describe 'User', type: :system do
           # 性別編集フォームに性別が表示される
           expect(page).to have_select('user[gender_id]', options: ['-----', '男性', '女性', '無回答'])
           # 好きなジャンル編集フォームに好きなジャンルが表示される
-          expect(page).to have_select('user[genre_id]', options: ['-----', 'EDM', 'Rock', 'Trance', 'Techno', 'Drum & Bass', 'Bass Music', 'Hip Hop', '主要なジャンルほぼ全て'])
+          expect(page).to have_select('user[genre_id]',
+                                      options: ['-----', 'EDM', 'Rock', 'Trance', 'Techno', 'Drum & Bass', 'Bass Music',
+                                                'Hip Hop', '主要なジャンルほぼ全て'])
           # プロフィール編集フォームにプロフィールが表示される
           expect(page).to have_field 'プロフィール', with: user.profile
         end

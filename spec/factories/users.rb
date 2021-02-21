@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :user do
     nickname              { '野比のび太' }
     sequence(:email)      { |n| "tester#{n}@example.com" }
@@ -21,5 +20,4 @@ FactoryBot.define do
     genre_id              { 4 }
     admin                 { true }
   end
-
 end

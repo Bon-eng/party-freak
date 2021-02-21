@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Parties", type: :system do
+RSpec.describe 'Parties', type: :system do
   let(:admin_user) { FactoryBot.create(:user, admin: true) }
   describe 'adminユーザーのログイン機能' do
     context 'adminユーザーとしてログインできるとき' do
@@ -43,9 +43,9 @@ RSpec.describe "Parties", type: :system do
         fill_in 'オフィシャルHP', with: 'https:www.doraemon.com'
         attach_file '画像', 'spec/images/test.jpg'
         # 保存ボタンを押すとPartyモデルのカウントが1上がることを確認する
-        expect{
+        expect do
           find('input[name="commit"]').click
-        }.to change { Party.count }.by(1)
+        end.to change { Party.count }.by(1)
         # Partyの投稿ができたことを確認する
         expect(page).to have_content 'Partyの投稿ができました'
       end
@@ -62,15 +62,15 @@ RSpec.describe "Parties", type: :system do
         select '-----', from: 'party-genre'
         fill_in 'オフィシャルHP', with: ''
         # 保存ボタンを押すとPartyモデルのカウントは上がらないことを確認する
-        expect{
+        expect  do
           find('input[name="commit"]').click
-        }.to change { Party.count }.by(0)
+        end.to change { Party.count }.by(0)
         # Partyの投稿ができなかったことを確認する
         expect(page).to have_content 'Partyの投稿ができませんでした。'
       end
     end
   end
-  
+
   describe 'Partyの編集と削除' do
     let(:party) { FactoryBot.create(:party, user_id: user.id) }
     before do
