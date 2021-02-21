@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!, only: [:edit]
   before_action :user_find, only: [:show, :edit]
 
@@ -8,9 +7,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @user.id
-      redirect_to root_path, alert: '無効なURLです'
-    end
+    redirect_to root_path, alert: '無効なURLです' unless current_user.id == @user.id
   end
 
   private

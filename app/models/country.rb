@@ -1,5 +1,4 @@
 class Country < ActiveHash::Base
-
   self.data = [
     { id: 1, name: '-----' },
     { id: 2, name: 'ヨーロッパ' },
@@ -11,5 +10,4 @@ class Country < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :parties
-
 end

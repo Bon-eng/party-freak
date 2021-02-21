@@ -1,5 +1,4 @@
 class Gender < ActiveHash::Base
-
   self.data = [
     { id: 1, name: '-----' },
     { id: 2, name: '男性' },
@@ -9,5 +8,4 @@ class Gender < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :user
-
 end

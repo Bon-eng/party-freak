@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   before_action :authenticate_user!, only: [:edit, :destroy]
   before_action :review_find, only: [:show, :update, :edit, :destroy]
 
@@ -15,14 +14,12 @@ class ReviewsController < ApplicationController
       @party = Party.find(params[:party_id])
       @reviews = @party.reviews.includes(:user)
       flash[:error] = 'レビューの投稿ができませんでした。'
-      render "parties/show"
+      render 'parties/show'
     end
   end
 
   def edit
-    unless current_user.id == @review.user_id
-      redirect_to root_path, alert: '無効なURLです'
-    end
+    redirect_to root_path, alert: '無効なURLです' unless current_user.id == @review.user_id
   end
 
   def update
@@ -43,7 +40,6 @@ class ReviewsController < ApplicationController
     @party = Party.find(params[:id])
   end
 
-
   private
 
   def review_params
@@ -55,5 +51,4 @@ class ReviewsController < ApplicationController
   def review_find
     @review = Review.find(params[:id])
   end
-
 end

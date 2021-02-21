@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Reviews", type: :system do
+RSpec.describe 'Reviews', type: :system do
   let(:admin_user) { FactoryBot.create(:user, admin: true) }
   let(:party) { FactoryBot.create(:party, user_id: user.id) }
   let(:user) { FactoryBot.create(:user) }
@@ -9,7 +9,7 @@ RSpec.describe "Reviews", type: :system do
     @current_user_review = FactoryBot.create(:review, user: user, party: party)
   end
 
-  context '新規レビュー投稿ができるとき' do 
+  context '新規レビュー投稿ができるとき' do
     it '正しい情報を入力すれば新規レビュー投稿ができる' do
       # ログインする
       login(user)
@@ -20,9 +20,9 @@ RSpec.describe "Reviews", type: :system do
       fill_in 'レビュー本文', with: 'ガキ大将'
       attach_file '画像', 'spec/images/test.jpg'
       # 新規登録ボタンを押すとレビューモデルのカウントが1上がることを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Review.count }.by(1)
+      end.to change { Review.count }.by(1)
       # Partyの投稿ができたことを確認する
       expect(page).to have_content 'レビューの投稿ができました。'
     end
@@ -37,9 +37,9 @@ RSpec.describe "Reviews", type: :system do
       fill_in 'レビュータイトル', with: ''
       fill_in 'レビュー本文', with: ''
       # 新規登録ボタンを押すとレビューモデルのカウントが1上がらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Review.count }.by(0)
+      end.to change { Review.count }.by(0)
       # Partyの投稿ができたことを確認する
       expect(page).to have_content 'レビューの投稿ができませんでした。'
     end
@@ -95,7 +95,7 @@ RSpec.describe "Reviews", type: :system do
     context 'レビューの削除ができるとき' do
       it '本人が投稿したレビューは削除ボタンが表示される' do
         # 表示されているユーザーの名前をクリック
-        find(".user_name").click
+        find('.user_name').click
         # 表示されている削除するをクリック
         click_link '削除する', match: :first
         # 「レビューの削除ができました。」のflashメッセージが表示されていることを確認する

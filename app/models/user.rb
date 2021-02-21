@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-  
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable
 
   has_many :parties
   has_many :reviews
@@ -14,7 +13,7 @@ class User < ApplicationRecord
     validates :nickname
     validates :profile
 
-    with_options numericality: { other_than: 1, message: "を入力してください"} do
+    with_options numericality: { other_than: 1, message: 'を入力してください' } do
       validates :gender_id
       validates :genre_id
     end
@@ -22,7 +21,7 @@ class User < ApplicationRecord
   # PASSWORD_REGEXをここで定義し、withの中で使う
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
-  #on: :create ➡️ createアクションの時にだけvalidatesをかける
+  # on: :create ➡️ createアクションの時にだけvalidatesをかける
   validates :password, format: { with: PASSWORD_REGEX }, on: :create
   # パスワードが一致していなければいけない
   validates :password, confirmation: true, on: :create
@@ -36,5 +35,4 @@ class User < ApplicationRecord
       user.genre_id = '9'
     end
   end
-
 end
