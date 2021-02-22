@@ -40,7 +40,9 @@
       <% @reviews.each do |review| %>
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= review.title %></h2>
-          <p class="lead"><%= review.content %>
+            <div class="review_manage">
+              <p class="lead"><%= simple_format(review.content) %>
+            </div>
           <% if user_signed_in? && current_user.id == review.user_id %>
             <div class="party__manage">
               <button type="button" class="btn btn-info review_edit_btn">

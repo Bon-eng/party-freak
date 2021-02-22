@@ -14,6 +14,8 @@
       </div>
     <% end %>
     <h4><%= review.title %></h4>
-    <p><%= review.content %></p>
+      <div class="review_manage">
+        <p class="lead"><%= simple_format(review.content) %>
+      </div>
   </div>
 </div>
