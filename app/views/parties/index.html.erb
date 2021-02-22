@@ -75,7 +75,9 @@
       <% @review.first(3).each do |review| %>
         <div class="col-md-7">
           <h2 class="featurette-heading"><%= review.title %></h2>
-          <p class="lead"><%= review.content. truncate(50) %></p>
+          <div class="review_manage">
+            <p class="lead"><%= simple_format(review.content. truncate(100)) %>
+          </div>
           <button type="button" class="btn btn-outline-secondary btn-sm continue_content">
             <%= link_to "続きをみる", party_path(review.party.id), class: 'text-reset' %>
           </button>
