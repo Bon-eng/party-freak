@@ -1,6 +1,6 @@
 class PartiesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :admin_user, only: [:new, :edit, :destroy]
+  # before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  # before_action :admin_user, only: [:new, :edit, :destroy]
   before_action :party_find, only: [:show, :edit, :update, :destroy]
 
   def index
