@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :request do
+  let(:user) { FactoryBot.create(:user) }
   before do
     @user = FactoryBot.create(:user)
-    @party = FactoryBot.create(:party)
-    @review = FactoryBot.create(:review)
   end
 
   describe 'GET /sessions/new' do
@@ -12,20 +11,49 @@ RSpec.describe UsersController, type: :request do
       get new_user_session_path
       expect(response.status).to eq 200
     end
-
-    # it "indexアクションにリクエストするとレスポンスに投稿済みのpartyの名前が存在する" do
-    #   get root_path
-    #   expect(response.body).to include(@review.title)
-    #   expect(response.body).to include (@party)
-    #   expect(assigns(:party)).to eq party
-    # end
   end
 
-  describe 'user1で' do
-    it 'ログインに成功すること' do
-      get new_user_session_path(@user.id)
-      binding.pry
-      expect(response).to redirect_to root_path
+  describe 'POST /sessions/create' do
+    it 'ログインページにリクエストすると正常にレスポンスが返ってくる' do
+      post user_session_path
+      expect(response.status).to eq 200
+    end
+  end
+
+  describe 'GET #show' do
+    it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
+      get user_path(@user)
+      expect(response.status).to eq 200
+    end
+    it "showアクションにリクエストするとレスポンスに投稿済みuserの名前が存在する" do 
+      get user_path(@user)
+      expect(response.body).to include @user.nickname
+    end
+    it "showアクションにリクエストするとレスポンスに投稿済みuserの性別が存在する" do 
+      get user_path(@user)
+      expect(response.body).to include @user.gender.name
+    end
+    it "showアクションにリクエストするとレスポンスに投稿済みuserの好きなジャンルが存在する" do 
+      get user_path(@user)
+      expect(response.body).to include @user.genre.name
+    end
+    it "showアクションにリクエストするとレスポンスに投稿済みuserのプロフィールが存在する" do 
+      get user_path(@user)
+      expect(response.body).to include @user.profile
+    end
+  end
+
+  describe 'GET #edit' do
+    it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
+      get edit_user_path(@user)
+      expect(response.status).to eq 302
+    end
+  end
+
+  describe 'DELETE /sessions/destroy' do
+    it 'ログアウトページにリクエストすると正常にレスポンスが返ってくる' do
+      delete destroy_user_session_path
+      expect(response.status).to eq 302
     end
   end
 end

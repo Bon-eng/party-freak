@@ -22,7 +22,7 @@ RSpec.describe PartiesController, type: :request do
 
     describe 'POST #create' do
       it 'createアクションにリクエストすると正常にレスポンスが返ってくる' do
-        post parties_path, params: { party: FactoryBot.attributes_for(:party) }
+        post parties_path, params: { id: @user_id, party: FactoryBot.attributes_for(:party) }
         expect(response.status).to eq 302
       end
     end
