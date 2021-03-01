@@ -25,19 +25,19 @@ RSpec.describe UsersController, type: :request do
       get user_path(@user)
       expect(response.status).to eq 200
     end
-    it "showアクションにリクエストするとレスポンスに投稿済みuserの名前が存在する" do 
+    it "showアクションにリクエストするとレスポンスに登録済みuserの名前が存在する" do 
       get user_path(@user)
       expect(response.body).to include @user.nickname
     end
-    it "showアクションにリクエストするとレスポンスに投稿済みuserの性別が存在する" do 
+    it "showアクションにリクエストするとレスポンスに登録済みuserの性別が存在する" do 
       get user_path(@user)
       expect(response.body).to include @user.gender.name
     end
-    it "showアクションにリクエストするとレスポンスに投稿済みuserの好きなジャンルが存在する" do 
+    it "showアクションにリクエストするとレスポンスに登録済みuserの好きなジャンルが存在する" do 
       get user_path(@user)
       expect(response.body).to include @user.genre.name
     end
-    it "showアクションにリクエストするとレスポンスに投稿済みuserのプロフィールが存在する" do 
+    it "showアクションにリクエストするとレスポンスに登録済みuserのプロフィールが存在する" do 
       get user_path(@user)
       expect(response.body).to include @user.profile
     end
@@ -47,6 +47,10 @@ RSpec.describe UsersController, type: :request do
     it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
       get edit_user_path(@user)
       expect(response.status).to eq 302
+    end
+    it "editアクションにリクエストするとレスポンスに登録済みuserの名前が存在する" do 
+      get edit_user_path(@user)
+      expect(response.body).to include @user.nickname
     end
   end
 
