@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe UsersController, type: :request do
   before do
-    @user = FactoryBot.build(:user)
-    @party = FactoryBot.build(:party)
-    @review = FactoryBot.build(:review)
+    @user = FactoryBot.create(:user)
+    @party = FactoryBot.create(:party)
+    @review = FactoryBot.create(:review)
   end
 
   describe 'GET /sessions/new' do
@@ -21,11 +21,11 @@ describe UsersController, type: :request do
     # end
   end
 
-  # describe 'user1で' do
-  #   it 'ログインに成功すること' do
-  #     get new_user_session_path(@user.id)
-  #     binding.pry
-  #     expect(response).to redirect_to root_path
-  #   end
-  # end
+  describe 'user1で' do
+    it 'ログインに成功すること' do
+      get new_user_session_path(@user.id)
+      binding.pry
+      expect(response).to redirect_to root_path
+    end
+  end
 end
