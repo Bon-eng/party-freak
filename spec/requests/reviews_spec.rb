@@ -4,18 +4,22 @@ RSpec.describe ReviewsController, type: :request do
   let(:admin_user) { FactoryBot.create(:user, admin: true) }
   let(:party) { FactoryBot.create(:party, user_id: user.id) }
   let(:user) { FactoryBot.create(:user) }
+  let(:review) { FactoryBot.create(:review, party_id: party.id) }
   before do
     @user = FactoryBot.create(:user)
     @party = FactoryBot.create(:party)
     @review = FactoryBot.create(:review)
   end
 
-  # describe 'POST #create' do
-  #   it 'createアクションにリクエストすると正常にレスポンスが返ってくる' do
-  #     post party_reviews_path(@party, @review.party), params: { id: @party_id, review: FactoryBot.attributes_for(:review) }
-  #     expect(response.status).to eq 200
-  #   end
-  # end
+  describe 'POST #create' do
+    before do
+      sign_in user
+    end
+    it 'createアクションにリクエストすると正常にレスポンスが返ってくる' do
+      post party_reviews_path(@party, @review.party), params: { id: @party_id, review: FactoryBot.attributes_for(:review) }
+      expect(response.status).to eq 200
+    end
+  end
 
   describe 'GET #edit' do
     it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
@@ -32,6 +36,9 @@ RSpec.describe ReviewsController, type: :request do
   end
 
   # describe 'GET #show' do
+  #   before do
+  #     sign_in user
+  #   end
   #   it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
   #     get party_review_path(@party, @review.party)
   #     expect(response.status).to eq 200
@@ -66,7 +73,10 @@ RSpec.describe ReviewsController, type: :request do
   #   end
   # end
 
-  #   describe 'PUT #update' do
+  # describe 'PUT #update' do
+  #   before do
+  #     sign_in user
+  #   end
   #   it 'updateアクションにリクエストすると正常にレスポンスが返ってくる' do
   #     put party_review_path(@party, @review.party), params: { id: @party_id, review: FactoryBot.attributes_for(:review) }
   #     expect(response.status).to eq 200
