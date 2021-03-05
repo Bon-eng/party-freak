@@ -44,13 +44,32 @@ RSpec.describe UsersController, type: :request do
   end
 
   describe 'GET #edit' do
-    it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
-      get edit_user_path(@user)
-      expect(response.status).to eq 302
+    context 'userがログインしているとき' do
+      before do
+        sign_in user
+      end
+      it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
+        get edit_user_path(@user)
+        expect(response.status).to eq 302
+      end
+      it "editアクションにリクエストするとレスポンスに登録済みuserの名前が存在する" do 
+        get edit_user_path(@user)
+        expect(response.body).to include @user.nickname
+      end
+      it "editアクションにリクエストするとレスポンスに登録済みuserの名前が存在する" do 
+        get edit_user_path(@user)
+        expect(response.body).to include @user.gender.name
+      end
     end
-    it "editアクションにリクエストするとレスポンスに登録済みuserの名前が存在する" do 
-      get edit_user_path(@user)
-      expect(response.body).to include @user.nickname
+  end
+
+  describe 'GET #edit' do
+    context 'userがログインしていないとき' do
+      it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
+        get edit_user_path(@user)
+        expect(response.status).to eq 302
+
+      end
     end
   end
 
