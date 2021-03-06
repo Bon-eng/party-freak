@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   root to: 'parties#index'
   resources :parties do
-    resources :reviews, only: [:create, :show, :edit, :update, :destroy]
+    resources :reviews, only: [:create, :edit, :update, :destroy]
     collection do
       get 'lineup'
       get 'search'
