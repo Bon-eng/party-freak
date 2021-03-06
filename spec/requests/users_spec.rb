@@ -3,7 +3,7 @@ RSpec.describe UsersController, type: :request do
   before do
     @user = FactoryBot.create(:user)
   end
-
+#全15項目
   describe 'GET /sessions#new' do
     it 'ログインページにリクエストすると正常にレスポンスが返ってくる' do
       get new_user_session_path
