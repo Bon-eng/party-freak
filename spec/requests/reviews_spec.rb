@@ -1,19 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe ReviewsController, type: :request do
-  let(:admin_user) { FactoryBot.create(:user, admin: true) }
-  let(:party) { FactoryBot.create(:party, user_id: user.id) }
-  let(:user) { FactoryBot.create(:user) }
-  let(:review) { FactoryBot.create(:review, party_id: party.id) }
+  # let(:admin_user) { FactoryBot.create(:user, admin: true) }
+  # let(:party) { FactoryBot.create(:party, user_id: user.id) }
+  # let(:user) { FactoryBot.create(:user) }
+  # let(:review) { FactoryBot.create(:review, party_id: party.id) }
   before do
     @user = FactoryBot.create(:user)
+    @admin_user = FactoryBot.create(:user, admin: true)
     @party = FactoryBot.create(:party)
     @review = FactoryBot.create(:review)
   end
 
   describe 'POST #create' do
     before do
-      sign_in user
+      sign_in @user
     end
     it 'createアクションにリクエストすると正常にレスポンスが返ってくる' do
       post party_reviews_path(@party, @review.party), params: { id: @party_id, review: FactoryBot.attributes_for(:review) }
