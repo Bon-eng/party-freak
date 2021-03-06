@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy]
-  before_action :review_find, only: [:show, :update, :edit, :destroy]
+  before_action :review_find, only: [:update, :edit, :destroy]
 
   def create
     @review = Review.new(review_params)
@@ -30,10 +30,6 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to party_path(@review.party), alert: 'レビューの削除ができました。'
-  end
-
-  def show
-    @party = Party.find(params[:id])
   end
 
   private
