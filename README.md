@@ -83,7 +83,7 @@
 ・Capistrano    
 
 #### 【その他】  
-・Rspec、Rubocop（テスト項目100以上)
+・Rspec、Rubocop（テスト項目100以上)  
 ・GitHub  
 ・Slack  
 
