@@ -1,7 +1,10 @@
 require 'rails_helper'
-
 RSpec.describe 'Parties', type: :system do
+  let(:user) { FactoryBot.create(:user) }
   let(:admin_user) { FactoryBot.create(:user, admin: true) }
+  let(:party) { FactoryBot.create(:party, user_id: user.id) }
+  #全10項目
+
   describe 'adminユーザーのログイン機能' do
     context 'adminユーザーとしてログインできるとき' do
       it '正しい情報を入力すればadminユーザーとしてログインができてトップページに移動する' do
@@ -72,7 +75,6 @@ RSpec.describe 'Parties', type: :system do
   end
 
   describe 'Partyの編集と削除' do
-    let(:party) { FactoryBot.create(:party, user_id: user.id) }
     before do
       login(admin_user)
     end
@@ -152,7 +154,6 @@ RSpec.describe 'Parties', type: :system do
   end
 
   describe 'ログインしていてもadminユーザーでなければ投稿も編集もできない' do
-    let(:user) { FactoryBot.create(:user) }
     before do
       @party = FactoryBot.create(:party)
       @user = FactoryBot.build(:user)

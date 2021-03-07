@@ -1,13 +1,11 @@
 require 'rails_helper'
-
 RSpec.describe 'Reviews', type: :system do
-  let(:admin_user) { FactoryBot.create(:user, admin: true) }
-  let(:party) { FactoryBot.create(:party, user_id: user.id) }
   let(:user) { FactoryBot.create(:user) }
+  let(:party) { FactoryBot.create(:party, user_id: user.id) }
   before do
-    login(user)
     @current_user_review = FactoryBot.create(:review, user: user, party: party)
   end
+  #全6項目
 
   context '新規レビュー投稿ができるとき' do
     it '正しい情報を入力すれば新規レビュー投稿ができる' do
@@ -23,7 +21,7 @@ RSpec.describe 'Reviews', type: :system do
       expect do
         find('input[name="commit"]').click
       end.to change { Review.count }.by(1)
-      # Partyの投稿ができたことを確認する
+      # レビューの投稿ができたことを確認する
       expect(page).to have_content 'レビューの投稿ができました。'
     end
   end
@@ -40,7 +38,7 @@ RSpec.describe 'Reviews', type: :system do
       expect  do
         find('input[name="commit"]').click
       end.to change { Review.count }.by(0)
-      # Partyの投稿ができたことを確認する
+      # レビューの投稿ができたことを確認する
       expect(page).to have_content 'レビューの投稿ができませんでした。'
     end
   end
@@ -48,7 +46,6 @@ RSpec.describe 'Reviews', type: :system do
   describe 'レビューの編集' do
     before do
       login(user)
-      @current_user_review = FactoryBot.create(:review, user: user, party: party)
       visit edit_party_review_path(party.id, @current_user_review.id)
     end
     context 'レビューの編集画面に遷移する' do
@@ -89,11 +86,9 @@ RSpec.describe 'Reviews', type: :system do
   describe 'レビューの削除' do
     before do
       login(user)
-      @current_user_review = FactoryBot.create(:review, user: user, party: party)
-      visit edit_user_registration_path(user)
     end
     context 'レビューの削除ができるとき' do
-      it '本人が投稿したレビューは削除ボタンが表示される' do
+      it '本人が投稿したレビューは削除ができる' do
         # 表示されているユーザーの名前をクリック
         find('.user_name').click
         # 表示されている削除するをクリック
