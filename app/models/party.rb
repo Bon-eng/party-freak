@@ -11,7 +11,7 @@ class Party < ApplicationRecord
 
   def self.search(search)
     if search != ''
-      Party.where('introduction LIKE(?)', "%#{search}%")
+      Party.where('name LIKE(?) OR introduction LIKE(?)', "%#{search}%", "%#{search}%")
     else
       Party.all
     end
