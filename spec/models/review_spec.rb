@@ -1,10 +1,10 @@
 require 'rails_helper'
-
 RSpec.describe Review, type: :model do
   before do
     @review = FactoryBot.build(:review)
   end
-
+  #全4項目
+  
   describe 'レビューの保存' do
     context 'レビューが投稿できる場合'
     it '記入欄の全てが存在すれば登録できる' do
