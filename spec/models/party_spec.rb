@@ -1,10 +1,10 @@
 require 'rails_helper'
-
 RSpec.describe Party, type: :model do
   before do
     @party = FactoryBot.build(:party)
   end
-
+  #全7項目
+  
   describe '新規登録/Party情報' do
     context '新規登録がうまくいくとき'
     it '記入欄の全てが存在すれば登録できる' do
